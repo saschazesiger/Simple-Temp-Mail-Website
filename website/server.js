@@ -25,10 +25,11 @@ app.get('/inbox', (req, res) => {
     const { from, to, header, body } = req.body;
     console.log(req.query);
 
-    const sql = `INSERT INTO mail (from, to, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${req.body.header}", "${req.body.body}")`;
 
+    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.query.from}", "${req.query.to}", NOW(), "${req.query.header}", "${req.query.body}")`;
+    
 
-    connection.query(sql, values, (err, result) => {
+    connection.query(sql, (err, result) => {
      if (err){
             console.log(err);
             return res.status(500).send(err);
