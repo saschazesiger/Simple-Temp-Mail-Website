@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.render('index.html');
 });
 
 app.post('/inbox', async (req, res) => {
@@ -34,7 +34,7 @@ app.post('/inbox', async (req, res) => {
     const parsedbody = await simpleParser(req.body.body)
     console.log(parsedbody.subject);
 
-    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html}")`;
+    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html.replaceAll('"',"'")}")`;
     
 
     connection.query(sql, (err, result) => {
