@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/inbox', async (req, res) => {
 
-    if(!req.body.key !== process.env.privatekey){
+    if(req.body.key !== process.env.privatekey){
         return res.status(403).send();
     }
 
