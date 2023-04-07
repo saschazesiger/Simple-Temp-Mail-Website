@@ -21,12 +21,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/inbox', (req, res) => {
-    const { from, to, header, body } = req.body;
-    console.log(req.query);
+app.post('/inbox', (req, res) => {
+    console.log(req.body);
 
 
-    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.query.from}", "${req.query.to}", NOW(), "${req.query.header}", "${req.query.body}")`;
+    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${req.body.header}", "${req.body.body}")`;
     
 
     connection.query(sql, (err, result) => {
