@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const env = require('dotenv').config();
 
 const app = express();
 
@@ -8,10 +9,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const connection = mysql.createConnection({
-    host: 'aws.connect.psdb.cloud',
-    user: '22vz40jhtiu8piz7gq3i',
-    password: 'pscale_pw_m9bLGObNswx2cMBwJDqk6OcgrfOgcVRPh5qIsWxkdIU',
-    database: 'mail',
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
     port: 3306,
     ssl: {}
 });
