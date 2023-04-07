@@ -2,6 +2,8 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const env = require('dotenv').config();
+const simpleParser = require('mailparser').simpleParser;
+
 
 const app = express();
 
@@ -21,11 +23,18 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.post('/inbox', (req, res) => {
-    console.log(req.body);
+app.post('/inbox', async (req, res) => {
+
+    if(!req.body.key !== process.env.privatekey){
+        return res.status(403).send();
+    }
 
 
-    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${req.body.header}", "${req.body.body}")`;
+
+    const parsedbody = await simpleParser(req.body.body)
+    console.log(parsedbody.subject);
+
+    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html}")`;
     
 
     connection.query(sql, (err, result) => {
@@ -37,8 +46,8 @@ app.post('/inbox', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+app.listen(5000, () => {
+    console.log('Server started on port 5000');
 });
 
 
