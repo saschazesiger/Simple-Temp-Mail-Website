@@ -123,50 +123,22 @@
                                     </div><!-- .nk-msg-nav -->
                                     <div class="nk-msg-list" id="">
                                         <div class="simplebar-content" id="sidebar-mails" style="padding: 0px;">
-                                        <div id="turnstile"></div>                                            
-    
-                                        
-                                        <div class="nk-msg-item current" data-msg-id="1">
-                                            <div class="nk-msg-media user-avatar">
-                                                <span>AB</span>
-                                            </div>
-                                            <div class="nk-msg-info">
-                                                <div class="nk-msg-from">
-                                                    <div class="nk-msg-sender">
-                                                        <div class="name">GOOG.RE</div>
-                                                        <div class="lable-tag dot bg-pink"></div>
-                                                    </div>
-                                                    <div class="nk-msg-meta">
-                                                        <div class="attchment"><em class="icon ni ni-clip-h"></em></div>
-                                                        <div class="date">12 Jan</div>
-                                                    </div>
-                                                </div>
-                                                <div class="nk-msg-context">
-                                                    <div class="nk-msg-text">
-                                                        <h6 class="title">Unable to select currency when order.</h6>
-                                                        <p>Hello team, I am facing problem as i can not select currency
-                                                            on buy order page.</p>
-                                                    </div>
-                                                    <div class="nk-msg-lables">
-                                                        <div class="asterisk"><a href="#"><em
-                                                                    class="asterisk-off icon ni ni-star"></em><em
-                                                                    class="asterisk-on icon ni ni-star-fill"></em></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- .nk-msg-item -->
-                                    </div>
+                                            <div id="turnstile"></div>
+
+
+
+                                        </div>
 
                                     </div><!-- .nk-msg-list -->
                                 </div><!-- .nk-msg-aside -->
                                 <div class="nk-msg-body bg-white profile-shown">
                                     <div class="nk-msg-head">
-                                        <h4 class="title d-none d-lg-block">Unable to select currency when order</h4>
+                                        <h4 class="title d-none d-lg-block" id="title-tag"></h4>
                                         <div class="nk-msg-head-meta">
                                             <div class="d-none d-lg-block">
                                                 <ul class="nk-msg-tags">
-                                                    <li><span class="label-tag"> <span>12.02.2023</span></span></li>
+                                                    <li><span id="sender-tag"></span></li>
+                                                    <li><span id="date-tag"> <span>12.02.2023</span></span></li>
                                                 </ul>
                                             </div>
                                             <div class="d-lg-none"><a href="#"
@@ -180,7 +152,9 @@
                                         <a href="#" class="nk-msg-profile-toggle profile-toggle active"><em
                                                 class="icon ni ni-arrow-left"></em></a>
                                     </div><!-- .nk-msg-head -->
+                                    <div style="margin:4rem !important;" id="body-tag">
 
+                                    </div>
                                     <div class="nk-msg-profile visible" data-simplebar>
                                         <div class="card">
                                             <div class="card-inner-group">
@@ -312,38 +286,11 @@
                         </div>
                         <div class="nk-footer-links">
                             <ul class="nav nav-sm">
-                                <li class="nav-item dropup">
-                                    <a href="#"
-                                        class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base"
-                                        data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
-                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                                        <ul class="language-list">
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <span class="language-name">English</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <span class="language-name">Español</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <span class="language-name">Français</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <span class="language-name">Türkçe</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
                                 <li class="nav-item">
-                                    <a data-bs-toggle="modal" href="#region" class="nav-link"><em
-                                            class="icon ni ni-globe"></em><span class="ms-1">Select Region</span></a>
+                                    <div class="spinner-grow" id="status-icon" style="height: 12px;width: 12px;"
+                                        role="status">
+                                    </div>
+                                    <span class="ms-1" style="margin-right:2rem;" id="status">Loading...</span>
                                 </li>
                             </ul>
                         </div>
@@ -356,145 +303,24 @@
     </div>
     <!-- app-root @e -->
     <!-- select region modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="region">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title mb-4">Select Your Country</h5>
-                    <div class="nk-country-region">
-                        <ul class="country-list text-center gy-2">
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/arg.png" alt="" class="country-flag">
-                                    <span class="country-name">Argentina</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/aus.png" alt="" class="country-flag">
-                                    <span class="country-name">Australia</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/bangladesh.png" alt="" class="country-flag">
-                                    <span class="country-name">Bangladesh</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/canada.png" alt="" class="country-flag">
-                                    <span class="country-name">Canada <small>(English)</small></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
-                                    <span class="country-name">Centrafricaine</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
-                                    <span class="country-name">China</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/french.png" alt="" class="country-flag">
-                                    <span class="country-name">France</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/germany.png" alt="" class="country-flag">
-                                    <span class="country-name">Germany</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/iran.png" alt="" class="country-flag">
-                                    <span class="country-name">Iran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/italy.png" alt="" class="country-flag">
-                                    <span class="country-name">Italy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/mexico.png" alt="" class="country-flag">
-                                    <span class="country-name">México</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/philipine.png" alt="" class="country-flag">
-                                    <span class="country-name">Philippines</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/portugal.png" alt="" class="country-flag">
-                                    <span class="country-name">Portugal</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/s-africa.png" alt="" class="country-flag">
-                                    <span class="country-name">South Africa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/spanish.png" alt="" class="country-flag">
-                                    <span class="country-name">Spain</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/switzerland.png" alt="" class="country-flag">
-                                    <span class="country-name">Switzerland</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/uk.png" alt="" class="country-flag">
-                                    <span class="country-name">United Kingdom</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="./images/flags/english.png" alt="" class="country-flag">
-                                    <span class="country-name">United State</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
-<script>
-    window.onloadTurnstileCallback = function () {
-  turnstile.render('#turnstile', {
-      sitekey: '0x4AAAAAAAD1k7oh6KVhbm7I',
-      callback: function (token) {
-        runsync(token)
-        console.log('token', token)
-      },
-  });
-};
 
-// if using synchronous loading, will be called once the DOM is ready
-turnstile.ready(onloadTurnstileCallback);
-</script>
-<script src="./assets/js/mail.js?ver=3.1.3"></script>
-<script src="./assets/js/bundle.js?ver=3.1.3"></script>
-<script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script>
+        window.onloadTurnstileCallback = function () {
+            turnstile.render('#turnstile', {
+                sitekey: '0x4AAAAAAAD1k7oh6KVhbm7I',
+                callback: function (token) {
+                    runsync(token)
+                    console.log('token', token)
+                },
+            });
+        };
+
+        // if using synchronous loading, will be called once the DOM is ready
+        turnstile.ready(onloadTurnstileCallback);
+    </script>
+    <script src="./assets/js/mail.js?ver=3.1.3"></script>
+    <script src="./assets/js/bundle.js?ver=3.1.3"></script>
+    <script src="./assets/js/scripts.js?ver=3.1.3"></script>
     <script src="./assets/js/apps/messages.js?ver=3.1.3"></script>
 
 </body>

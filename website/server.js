@@ -31,9 +31,9 @@ app.post('/inbox', async (req, res) => {
     }
 
     const parsedbody = await simpleParser(req.body.body)
-    console.log(parsedbody.subject);
+    console.log(parsedbody.from.text);
 
-    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${req.body.from}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html.replaceAll('"', "'")}")`;
+    const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${parsedbody.from.text}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html.replaceAll('"', "'")}")`;
 
 
     connection.query(sql, (err, result) => {
@@ -46,55 +46,33 @@ app.post('/inbox', async (req, res) => {
 });
 
 
-app.get('/verify', (req, res) => {
-    const fetch = require('node-fetch');
-    const FormData = require('form-data');
-
-    const SECRET_KEY = '0x4AAAAAAAD1kzJrMMJSELNDxU1QDEPNva4';
-
-    async function verifyToken(token, ip) {
-        const formData = new FormData();
-        formData.append('secret', SECRET_KEY);
-        formData.append('response', token);
-        formData.append('remoteip', ip);
-
-        const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-        const response = await fetch(url, { method: 'POST', body: formData });
-
-        const result = await response.json();
-
-        if (result.success) {
-            console.log('Token verified successfully');
-            // Do something if the token is valid
-        } else {
-            console.log('Token verification failed');
-            // Do something if the token is invalid
-        }
-    }
-
-    // Example usage
-    const token = 'example_token';
-    const ip = '127.0.0.1';
-    verifyToken(token, ip);
-});
 
 app.get('/api/mail', (req, res) => {
     const email = req.query.email;
-    const date = req.query.date;
+
+    const date = req.query.lastdate;
+    console.log(date);
+    
+    
+    newdate = new Date(date)
+    newdate.setHours(newdate.getHours() - 2);
+    const mysqlDate = newdate.toISOString().slice(0, 19).replace('T', ' ');
+
   
     // SQL-Abfrage, um E-Mail-Daten abzurufen
-    const sql = `SELECT sender, receiver, header, body, date FROM mail WHERE receiver='${email}' AND date > ${date} ORDER BY date DESC LIMIT 50`;
+    const sql = `SELECT id,sender, receiver, header, body, date FROM mail WHERE receiver='${email}' AND date > '${mysqlDate}' ORDER BY date DESC LIMIT 50`;
   
     // Datenbankabfrage ausführen
     connection.query(sql, (error, results, fields) => {
       if (error) {
-        res.status(500).json({ error: 'Datenbankfehler' });
+        console.log(error)
+        res.status(500).json({ error: '0' });
         return;
       }
   
       // Überprüfen Sie, ob Daten gefunden wurden
       if (results.length === 0) {
-        res.status(404).json({ error: 'E-Mail-Daten nicht gefunden' });
+        res.json([]);
         return;
       }
   
