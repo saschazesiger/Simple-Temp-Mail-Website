@@ -3,6 +3,8 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const env = require('dotenv').config();
 const simpleParser = require('mailparser').simpleParser;
+const engines = require('consolidate'); // Importiere die consolidate-Abhängigkeit
+
 
 
 const app = express();
@@ -19,9 +21,8 @@ const connection = mysql.createConnection({
     ssl: {}
 });
 
-app.get('/', (req, res) => {
-    res.render('index.html');
-});
+app.use(express.static(__dirname + '/public'));
+
 
 app.post('/inbox', async (req, res) => {
 

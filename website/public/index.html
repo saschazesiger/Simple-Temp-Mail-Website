@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>Messages - Temp Mail</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
+    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
+</head>
+
+<body class="nk-body bg-lighter ">
+    <div class="nk-app-root">
+        <!-- wrap @s -->
+        <div class="nk-wrap ">
+            <!-- main header @s -->
+            <div class="nk-header is-light">
+                <div class="container-fluid">
+                    <div class="nk-header-wrap">
+                        <div class="nk-menu-trigger me-sm-2 d-lg-none">
+                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em
+                                    class="icon ni ni-menu"></em></a>
+                        </div>
+                        <div class="nk-header-brand">
+                            <a href="/" class="logo-link">
+                                <img class="logo-light logo-img" src="./images/logo-dark.png"
+                                    srcset="./images/logo-dark.png" alt="logo">
+                                <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                    srcset="./images/logo-dark.png" alt="logo-dark">
+                            </a>
+                        </div><!-- .nk-header-brand -->
+                        <div class="nk-header-menu ms-auto" data-content="headerNav">
+                            <div class="nk-header-mobile">
+                                <div class="nk-header-brand">
+                                    <a href="/" class="logo-link">
+                                        <img class="logo-light logo-img" src="./images/logo-dark.png"
+                                            srcset="./images/logo-dark.png" alt="logo">
+                                        <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                            srcset="./images/logo-dark.png" alt="logo-dark">
+                                    </a>
+                                </div>
+                                <div class="nk-menu-trigger me-n2">
+                                    <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em
+                                            class="icon ni ni-arrow-left"></em></a>
+                                </div>
+                            </div>
+                            <ul class="nk-menu nk-menu-main ui-s2">
+                                <li class="nk-menu-item has-sub" id="email">
+                                    Loading...
+                                </li><!-- .nk-menu-item -->
+                            </ul><!-- .nk-menu -->
+                        </div><!-- .nk-header-menu -->
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+
+                                <li class="dropdown user-dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="dropdown-menu dropdown-menu-md dropdown-menu-end dropdown-menu-s1 is-light">
+                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                            <div class="user-card">
+                                                <div class="user-avatar">
+                                                    <span id="profile"></span>
+                                                </div>
+                                                <div class="user-info">
+                                                    <span class="sub-text" id="email2">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign
+                                                            out</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li><!-- .dropdown -->
+                            </ul><!-- .nk-quick-nav -->
+                        </div><!-- .nk-header-tools -->
+                    </div><!-- .nk-header-wrap -->
+                </div><!-- .container-fliud -->
+            </div>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content p-0">
+                <div class="container-fluid p-0">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-msg">
+                                <div class="nk-msg-aside">
+                                    <div class="nk-msg-nav">
+                                        <ul class="nk-msg-menu">
+                                            <li class="nk-msg-menu-item active"><a href="">All Conversations</a></li>
+                                            <li class="nk-msg-menu-item ms-auto"><a href=""
+                                                    class="search-toggle toggle-search" data-target="search"><em
+                                                        class="icon ni ni-search"></em></a></li>
+                                        </ul><!-- .nk-msg-menu -->
+                                        <div class="search-wrap" data-search="search">
+                                            <div class="search-content">
+                                                <a href="#" class="search-back btn btn-icon toggle-search"
+                                                    data-target="search"><em class="icon ni ni-arrow-left"></em></a>
+                                                <input type="text"
+                                                    class="form-control border-transparent form-focus-none"
+                                                    placeholder="Search by user or message">
+                                                <button class="search-submit btn btn-icon"><em
+                                                        class="icon ni ni-search"></em></button>
+                                            </div>
+                                        </div><!-- .search-wrap -->
+                                    </div><!-- .nk-msg-nav -->
+                                    <div class="nk-msg-list" data-simplebar>
+                                        <div class="nk-msg-item current" data-msg-id="1">
+                                            <div class="nk-msg-media user-avatar">
+                                                <span>AB</span>
+                                            </div>
+                                            <div class="nk-msg-info">
+                                                <div class="nk-msg-from">
+                                                    <div class="nk-msg-sender">
+                                                        <div class="name">GOOG.RE</div>
+                                                        <div class="lable-tag dot bg-pink"></div>
+                                                    </div>
+                                                    <div class="nk-msg-meta">
+                                                        <div class="attchment"><em class="icon ni ni-clip-h"></em></div>
+                                                        <div class="date">12 Jan</div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-msg-context">
+                                                    <div class="nk-msg-text">
+                                                        <h6 class="title">Unable to select currency when order.</h6>
+                                                        <p>Hello team, I am facing problem as i can not select currency
+                                                            on buy order page.</p>
+                                                    </div>
+                                                    <div class="nk-msg-lables">
+                                                        <div class="asterisk"><a href="#"><em
+                                                                    class="asterisk-off icon ni ni-star"></em><em
+                                                                    class="asterisk-on icon ni ni-star-fill"></em></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- .nk-msg-item -->
+
+
+                                    </div><!-- .nk-msg-list -->
+                                </div><!-- .nk-msg-aside -->
+                                <div class="nk-msg-body bg-white profile-shown">
+                                    <div class="nk-msg-head">
+                                        <h4 class="title d-none d-lg-block">Unable to select currency when order</h4>
+                                        <div class="nk-msg-head-meta">
+                                            <div class="d-none d-lg-block">
+                                                <ul class="nk-msg-tags">
+                                                    <li><span class="label-tag"> <span>12.02.2023</span></span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-lg-none"><a href="#"
+                                                    class="btn btn-icon btn-trigger nk-msg-hide ms-n1"><em
+                                                        class="icon ni ni-arrow-left"></em></a></div>
+                                            <ul class="nk-msg-actions">
+                                                <li><a href="#" class="btn btn-dim btn-sm btn-outline-light"><em
+                                                            class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="#" class="nk-msg-profile-toggle profile-toggle active"><em
+                                                class="icon ni ni-arrow-left"></em></a>
+                                    </div><!-- .nk-msg-head -->
+
+                            <div class="nk-msg-profile visible" data-simplebar>
+                                <div class="card">
+                                    <div class="card-inner-group">
+                                        <div class="card-inner">
+                                            <div class="user-card user-card-s2 mb-2">
+                                                <div class="user-avatar md bg-primary">
+                                                    <span>AB</span>
+                                                </div>
+                                                <div class="user-info">
+                                                    <h5>Abu Bin Ishtiyak</h5>
+                                                    <span class="sub-text">Customer</span>
+                                                </div>
+                                                <div class="user-card-menu dropdown">
+                                                    <a href="#" class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
+                                                        data-bs-toggle="dropdown"><em
+                                                            class="icon ni ni-more-h"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <ul class="link-list-opt no-bdr">
+                                                            <li><a href="#"><em class="icon ni ni-eye"></em><span>View
+                                                                        Profile</span></a></li>
+                                                            <li><a href="#"><em class="icon ni ni-na"></em><span>Ban
+                                                                        From System</span></a></li>
+                                                            <li><a href="#"><em
+                                                                        class="icon ni ni-repeat"></em><span>View
+                                                                        Orders</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center g-1">
+                                                <div class="col-4">
+                                                    <div class="profile-stats">
+                                                        <span class="amount">23</span>
+                                                        <span class="sub-text">Total Order</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="profile-stats">
+                                                        <span class="amount">20</span>
+                                                        <span class="sub-text">Complete</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="profile-stats">
+                                                        <span class="amount">3</span>
+                                                        <span class="sub-text">Progress</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- .card-inner -->
+                                        <div class="card-inner">
+                                            <div class="aside-wg">
+                                                <h6 class="overline-title-alt mb-2">User Information</h6>
+                                                <ul class="user-contacts">
+                                                    <li>
+                                                        <em class="icon ni ni-mail"></em><span>info@softnio.com</span>
+                                                    </li>
+                                                    <li>
+                                                        <em class="icon ni ni-call"></em><span>+938392939</span>
+                                                    </li>
+                                                    <li>
+                                                        <em class="icon ni ni-map-pin"></em><span>1134 Ridder Park Road
+                                                            <br>San Fransisco, CA 94851</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="aside-wg">
+                                                <h6 class="overline-title-alt mb-2">Additional</h6>
+                                                <div class="row gx-1 gy-3">
+                                                    <div class="col-6">
+                                                        <span class="sub-text">Ref ID: </span>
+                                                        <span>TID-049583</span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="sub-text">Requested:</span>
+                                                        <span>Abu Bin Ishtiak</span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="sub-text">Status:</span>
+                                                        <span class="lead-text text-success">Open</span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="sub-text">Last Reply:</span>
+                                                        <span>Abu Bin Ishtiak</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="aside-wg">
+                                                <h6 class="overline-title-alt mb-2">Assigned Account</h6>
+                                                <ul class="align-center g-2">
+                                                    <li>
+                                                        <div class="user-avatar bg-purple">
+                                                            <span>IH</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="user-avatar bg-pink">
+                                                            <span>ST</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="user-avatar bg-gray">
+                                                            <span>SI</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- .card-inner -->
+                                    </div>
+                                </div>
+                            </div><!-- .nk-msg-profile -->
+                        </div><!-- .nk-msg-body -->
+                    </div><!-- .nk-msg -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content @e -->
+    <!-- footer @s -->
+    <div class="nk-footer bg-white">
+        <div class="container-fluid">
+            <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> &copy; 2023 JS0.CH </a>
+                </div>
+                <div class="nk-footer-links">
+                    <ul class="nav nav-sm">
+                        <li class="nav-item dropup">
+                            <a href="#" class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base"
+                                data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
+                                <ul class="language-list">
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">English</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Español</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Français</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="language-item">
+                                            <span class="language-name">Türkçe</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="modal" href="#region" class="nav-link"><em
+                                    class="icon ni ni-globe"></em><span class="ms-1">Select Region</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer @e -->
+    </div>
+    <!-- wrap @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- select region modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="region">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                <div class="modal-body modal-body-md">
+                    <h5 class="title mb-4">Select Your Country</h5>
+                    <div class="nk-country-region">
+                        <ul class="country-list text-center gy-2">
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/arg.png" alt="" class="country-flag">
+                                    <span class="country-name">Argentina</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/aus.png" alt="" class="country-flag">
+                                    <span class="country-name">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/bangladesh.png" alt="" class="country-flag">
+                                    <span class="country-name">Bangladesh</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/canada.png" alt="" class="country-flag">
+                                    <span class="country-name">Canada <small>(English)</small></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/china.png" alt="" class="country-flag">
+                                    <span class="country-name">Centrafricaine</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/china.png" alt="" class="country-flag">
+                                    <span class="country-name">China</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/french.png" alt="" class="country-flag">
+                                    <span class="country-name">France</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/germany.png" alt="" class="country-flag">
+                                    <span class="country-name">Germany</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/iran.png" alt="" class="country-flag">
+                                    <span class="country-name">Iran</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/italy.png" alt="" class="country-flag">
+                                    <span class="country-name">Italy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/mexico.png" alt="" class="country-flag">
+                                    <span class="country-name">México</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/philipine.png" alt="" class="country-flag">
+                                    <span class="country-name">Philippines</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/portugal.png" alt="" class="country-flag">
+                                    <span class="country-name">Portugal</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/s-africa.png" alt="" class="country-flag">
+                                    <span class="country-name">South Africa</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/spanish.png" alt="" class="country-flag">
+                                    <span class="country-name">Spain</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/switzerland.png" alt="" class="country-flag">
+                                    <span class="country-name">Switzerland</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/uk.png" alt="" class="country-flag">
+                                    <span class="country-name">United Kingdom</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="country-item">
+                                    <img src="./images/flags/english.png" alt="" class="country-flag">
+                                    <span class="country-name">United State</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modla-dialog -->
+    </div><!-- .modal -->
+    <!-- JavaScript -->
+    <script src="./assets/js/bundle.js?ver=3.1.3"></script>
+    <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script src="./assets/js/apps/messages.js?ver=3.1.3"></script>
+</body>
+
+</html>
