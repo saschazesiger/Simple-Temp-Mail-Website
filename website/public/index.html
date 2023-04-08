@@ -14,8 +14,7 @@
     <title>Messages - Temp Mail</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
-    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
-</head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 
 <body class="nk-body bg-lighter ">
     <div class="nk-app-root">
@@ -122,7 +121,11 @@
                                             </div>
                                         </div><!-- .search-wrap -->
                                     </div><!-- .nk-msg-nav -->
-                                    <div class="nk-msg-list" data-simplebar>
+                                    <div class="nk-msg-list" id="">
+                                        <div class="simplebar-content" id="sidebar-mails" style="padding: 0px;">
+                                        <div id="turnstile"></div>                                            
+    
+                                        
                                         <div class="nk-msg-item current" data-msg-id="1">
                                             <div class="nk-msg-media user-avatar">
                                                 <span>AB</span>
@@ -153,7 +156,7 @@
                                                 </div>
                                             </div>
                                         </div><!-- .nk-msg-item -->
-
+                                    </div>
 
                                     </div><!-- .nk-msg-list -->
                                 </div><!-- .nk-msg-aside -->
@@ -178,172 +181,178 @@
                                                 class="icon ni ni-arrow-left"></em></a>
                                     </div><!-- .nk-msg-head -->
 
-                            <div class="nk-msg-profile visible" data-simplebar>
-                                <div class="card">
-                                    <div class="card-inner-group">
-                                        <div class="card-inner">
-                                            <div class="user-card user-card-s2 mb-2">
-                                                <div class="user-avatar md bg-primary">
-                                                    <span>AB</span>
-                                                </div>
-                                                <div class="user-info">
-                                                    <h5>Abu Bin Ishtiyak</h5>
-                                                    <span class="sub-text">Customer</span>
-                                                </div>
-                                                <div class="user-card-menu dropdown">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
-                                                        data-bs-toggle="dropdown"><em
-                                                            class="icon ni ni-more-h"></em></a>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <ul class="link-list-opt no-bdr">
-                                                            <li><a href="#"><em class="icon ni ni-eye"></em><span>View
-                                                                        Profile</span></a></li>
-                                                            <li><a href="#"><em class="icon ni ni-na"></em><span>Ban
-                                                                        From System</span></a></li>
-                                                            <li><a href="#"><em
-                                                                        class="icon ni ni-repeat"></em><span>View
-                                                                        Orders</span></a></li>
+                                    <div class="nk-msg-profile visible" data-simplebar>
+                                        <div class="card">
+                                            <div class="card-inner-group">
+                                                <div class="card-inner">
+                                                    <div class="user-card user-card-s2 mb-2">
+                                                        <div class="user-avatar md bg-primary">
+                                                            <span>AB</span>
+                                                        </div>
+                                                        <div class="user-info">
+                                                            <h5>Abu Bin Ishtiyak</h5>
+                                                            <span class="sub-text">Customer</span>
+                                                        </div>
+                                                        <div class="user-card-menu dropdown">
+                                                            <a href="#"
+                                                                class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
+                                                                data-bs-toggle="dropdown"><em
+                                                                    class="icon ni ni-more-h"></em></a>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <ul class="link-list-opt no-bdr">
+                                                                    <li><a href="#"><em
+                                                                                class="icon ni ni-eye"></em><span>View
+                                                                                Profile</span></a></li>
+                                                                    <li><a href="#"><em
+                                                                                class="icon ni ni-na"></em><span>Ban
+                                                                                From System</span></a></li>
+                                                                    <li><a href="#"><em
+                                                                                class="icon ni ni-repeat"></em><span>View
+                                                                                Orders</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row text-center g-1">
+                                                        <div class="col-4">
+                                                            <div class="profile-stats">
+                                                                <span class="amount">23</span>
+                                                                <span class="sub-text">Total Order</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="profile-stats">
+                                                                <span class="amount">20</span>
+                                                                <span class="sub-text">Complete</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="profile-stats">
+                                                                <span class="amount">3</span>
+                                                                <span class="sub-text">Progress</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .card-inner -->
+                                                <div class="card-inner">
+                                                    <div class="aside-wg">
+                                                        <h6 class="overline-title-alt mb-2">User Information</h6>
+                                                        <ul class="user-contacts">
+                                                            <li>
+                                                                <em
+                                                                    class="icon ni ni-mail"></em><span>info@softnio.com</span>
+                                                            </li>
+                                                            <li>
+                                                                <em class="icon ni ni-call"></em><span>+938392939</span>
+                                                            </li>
+                                                            <li>
+                                                                <em class="icon ni ni-map-pin"></em><span>1134 Ridder
+                                                                    Park Road
+                                                                    <br>San Fransisco, CA 94851</span>
+                                                            </li>
                                                         </ul>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center g-1">
-                                                <div class="col-4">
-                                                    <div class="profile-stats">
-                                                        <span class="amount">23</span>
-                                                        <span class="sub-text">Total Order</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="profile-stats">
-                                                        <span class="amount">20</span>
-                                                        <span class="sub-text">Complete</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="profile-stats">
-                                                        <span class="amount">3</span>
-                                                        <span class="sub-text">Progress</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- .card-inner -->
-                                        <div class="card-inner">
-                                            <div class="aside-wg">
-                                                <h6 class="overline-title-alt mb-2">User Information</h6>
-                                                <ul class="user-contacts">
-                                                    <li>
-                                                        <em class="icon ni ni-mail"></em><span>info@softnio.com</span>
-                                                    </li>
-                                                    <li>
-                                                        <em class="icon ni ni-call"></em><span>+938392939</span>
-                                                    </li>
-                                                    <li>
-                                                        <em class="icon ni ni-map-pin"></em><span>1134 Ridder Park Road
-                                                            <br>San Fransisco, CA 94851</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="aside-wg">
-                                                <h6 class="overline-title-alt mb-2">Additional</h6>
-                                                <div class="row gx-1 gy-3">
-                                                    <div class="col-6">
-                                                        <span class="sub-text">Ref ID: </span>
-                                                        <span>TID-049583</span>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <span class="sub-text">Requested:</span>
-                                                        <span>Abu Bin Ishtiak</span>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <span class="sub-text">Status:</span>
-                                                        <span class="lead-text text-success">Open</span>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <span class="sub-text">Last Reply:</span>
-                                                        <span>Abu Bin Ishtiak</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="aside-wg">
-                                                <h6 class="overline-title-alt mb-2">Assigned Account</h6>
-                                                <ul class="align-center g-2">
-                                                    <li>
-                                                        <div class="user-avatar bg-purple">
-                                                            <span>IH</span>
+                                                    <div class="aside-wg">
+                                                        <h6 class="overline-title-alt mb-2">Additional</h6>
+                                                        <div class="row gx-1 gy-3">
+                                                            <div class="col-6">
+                                                                <span class="sub-text">Ref ID: </span>
+                                                                <span>TID-049583</span>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <span class="sub-text">Requested:</span>
+                                                                <span>Abu Bin Ishtiak</span>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <span class="sub-text">Status:</span>
+                                                                <span class="lead-text text-success">Open</span>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <span class="sub-text">Last Reply:</span>
+                                                                <span>Abu Bin Ishtiak</span>
+                                                            </div>
                                                         </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="user-avatar bg-pink">
-                                                            <span>ST</span>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="user-avatar bg-gray">
-                                                            <span>SI</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                    <div class="aside-wg">
+                                                        <h6 class="overline-title-alt mb-2">Assigned Account</h6>
+                                                        <ul class="align-center g-2">
+                                                            <li>
+                                                                <div class="user-avatar bg-purple">
+                                                                    <span>IH</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="user-avatar bg-pink">
+                                                                    <span>ST</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="user-avatar bg-gray">
+                                                                    <span>SI</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div><!-- .card-inner -->
                                             </div>
-                                        </div><!-- .card-inner -->
+                                        </div>
+                                    </div><!-- .nk-msg-profile -->
+                                </div><!-- .nk-msg-body -->
+                            </div><!-- .nk-msg -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer bg-white">
+                <div class="container-fluid">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright"> &copy; 2023 JS0.CH </a>
+                        </div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item dropup">
+                                    <a href="#"
+                                        class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base"
+                                        data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
+                                        <ul class="language-list">
+                                            <li>
+                                                <a href="#" class="language-item">
+                                                    <span class="language-name">English</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="language-item">
+                                                    <span class="language-name">Español</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="language-item">
+                                                    <span class="language-name">Français</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="language-item">
+                                                    <span class="language-name">Türkçe</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </div>
-                            </div><!-- .nk-msg-profile -->
-                        </div><!-- .nk-msg-body -->
-                    </div><!-- .nk-msg -->
+                                </li>
+                                <li class="nav-item">
+                                    <a data-bs-toggle="modal" href="#region" class="nav-link"><em
+                                            class="icon ni ni-globe"></em><span class="ms-1">Select Region</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- footer @e -->
         </div>
-    </div>
-    <!-- content @e -->
-    <!-- footer @s -->
-    <div class="nk-footer bg-white">
-        <div class="container-fluid">
-            <div class="nk-footer-wrap">
-                <div class="nk-footer-copyright"> &copy; 2023 JS0.CH </a>
-                </div>
-                <div class="nk-footer-links">
-                    <ul class="nav nav-sm">
-                        <li class="nav-item dropup">
-                            <a href="#" class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base"
-                                data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                                <ul class="language-list">
-                                    <li>
-                                        <a href="#" class="language-item">
-                                            <span class="language-name">English</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="language-item">
-                                            <span class="language-name">Español</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="language-item">
-                                            <span class="language-name">Français</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="language-item">
-                                            <span class="language-name">Türkçe</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a data-bs-toggle="modal" href="#region" class="nav-link"><em
-                                    class="icon ni ni-globe"></em><span class="ms-1">Select Region</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer @e -->
-    </div>
-    <!-- wrap @e -->
+        <!-- wrap @e -->
     </div>
     <!-- app-root @e -->
     <!-- select region modal -->
@@ -469,10 +478,25 @@
             </div><!-- .modal-content -->
         </div><!-- .modla-dialog -->
     </div><!-- .modal -->
-    <!-- JavaScript -->
-    <script src="./assets/js/bundle.js?ver=3.1.3"></script>
-    <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+<script>
+    window.onloadTurnstileCallback = function () {
+  turnstile.render('#turnstile', {
+      sitekey: '0x4AAAAAAAD1k7oh6KVhbm7I',
+      callback: function (token) {
+        runsync(token)
+        console.log('token', token)
+      },
+  });
+};
+
+// if using synchronous loading, will be called once the DOM is ready
+turnstile.ready(onloadTurnstileCallback);
+</script>
+<script src="./assets/js/mail.js?ver=3.1.3"></script>
+<script src="./assets/js/bundle.js?ver=3.1.3"></script>
+<script src="./assets/js/scripts.js?ver=3.1.3"></script>
     <script src="./assets/js/apps/messages.js?ver=3.1.3"></script>
+
 </body>
 
 </html>
