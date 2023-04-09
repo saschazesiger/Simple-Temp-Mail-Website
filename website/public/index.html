@@ -56,12 +56,12 @@
                                     style="cursor: pointer; display: flex; flex-direction: row;">
                                     <input id="changeMail" class="form-control"
                                         style="max-width: 10rem !important; display: none;">
-                                    <a id="email" class="mx-1" style="color:black;"> Loading... </a>
+                                    <a id="email" class="mx-1" style="color:#566271;margin-right: 2rem !important;"> Loading... </a>
                                     <a id="copy" class="bi bi-clipboard mx-1"></a>
-                                    <button class="bi bi-pencil btn" id="edit" onclick="edit()"></button>
-                                    <button class="bi bi-check2 btn text-success" id="confirm" onclick="confirm()"
-                                        style="display:none;"></button>
-                                    <button class="bi bi-x-lg btn text-danger" onclick="location.reload()" id="close"
+                                    <button class="bi bi-pencil btn" style="color:#8091a7" id="edit" onclick="edit()"></button>
+                                    <button class="bi bi-check-circle-fill btn text-success px-1" id="confirm" onclick="confirm()"
+                                        style="display:none;font-size: 20px;"></button>
+                                    <button class="bi bi-x-lg btn text-danger px-1" onclick="location.reload()" id="close"
                                         style="display:none;"></button>
                                     <a href="/" id="reload" class="bi bi-arrow-repeat mx-1"></a>
                                 </li>
@@ -161,7 +161,7 @@
                                         <a href="#" class="nk-msg-profile-toggle profile-toggle active"><em
                                                 class="icon ni ni-arrow-left"></em></a>
                                     </div><!-- .nk-msg-head -->
-                                    <div style="overflow-y: auto;height: 100%;" id="body-tag">
+                                    <div style="overflow-y: auto;height: 100%;margin: 1rem;padding: 1rem;" class="card card-bordered"  id="body-tag">
                                         <div
                                             style="height: 100%;width: 100%;background-size: cover;display: flex;flex-direction: column;justify-content: center;">
                                             <div style="margin-left:auto;margin-right:auto;width: 80%;text-align: center;border-radius: 20px;"
@@ -193,68 +193,12 @@
                                                             <h5 id="sender-name"></h5>
                                                             <span class="sub-text" id="sender-mail"></span>
                                                         </div>
-                                                        <div class="user-card-menu dropdown">
-                                                            <a href="#"
-                                                                class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
-                                                                data-bs-toggle="dropdown"><em
-                                                                    class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em
-                                                                                class="icon ni ni-eye"></em><span>View
-                                                                                Profile</span></a></li>
-                                                                    <li><a href="#"><em
-                                                                                class="icon ni ni-na"></em><span>Ban
-                                                                                From System</span></a></li>
-                                                                    <li><a href="#"><em
-                                                                                class="icon ni ni-repeat"></em><span>View
-                                                                                Orders</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
                                                     </div>
 
                                                 </div><!-- .card-inner -->
                                                 <div class="card-inner">
-                                                    <div class="aside-wg">
-                                                        <h6 class="overline-title-alt mb-2">User Information</h6>
-                                                        <ul class="user-contacts">
-                                                            <li>
-                                                                <em
-                                                                    class="icon ni ni-mail"></em><span>info@softnio.com</span>
-                                                            </li>
-                                                            <li>
-                                                                <em class="icon ni ni-call"></em><span>+938392939</span>
-                                                            </li>
-                                                            <li>
-                                                                <em class="icon ni ni-map-pin"></em><span>1134 Ridder
-                                                                    Park Road
-                                                                    <br>San Fransisco, CA 94851</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="aside-wg">
-                                                        <h6 class="overline-title-alt mb-2">Additional</h6>
-                                                        <div class="row gx-1 gy-3">
-                                                            <div class="col-6">
-                                                                <span class="sub-text">Ref ID: </span>
-                                                                <span>TID-049583</span>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <span class="sub-text">Requested:</span>
-                                                                <span>Abu Bin Ishtiak</span>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <span class="sub-text">Status:</span>
-                                                                <span class="lead-text text-success">Open</span>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <span class="sub-text">Last Reply:</span>
-                                                                <span>Abu Bin Ishtiak</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                                    <h6>What is GOOG.RE?</h6>
+                                                                    <p class="mt-1 mb-4">Our platform provides a simple and convenient solution for generating temporary email addresses. <br>With just a few clicks, you can create a unique and temporary email address for various purposes without receiving spam or unwanted emails to your personal email address. <br><br>We offer a free <a href="https://github.com/saschazesiger/Simple-Temp-Mail-Website">API</a> for developers to integrate our service into their applications, and our entire project is open source.</p>
                                                 </div><!-- .card-inner -->
                                             </div>
                                         </div>
@@ -265,8 +209,6 @@
                     </div>
                 </div>
             </div>
-            <!-- content @e -->
-            <!-- footer @s -->
             <div class="nk-footer bg-white">
                 <div class="container-fluid">
                     <div class="nk-footer-wrap">
@@ -285,12 +227,8 @@
                     </div>
                 </div>
             </div>
-            <!-- footer @e -->
         </div>
-        <!-- wrap @e -->
     </div>
-    <!-- app-root @e -->
-    <!-- select region modal -->
     <script src="./assets/js/mail.js?ver=3.1.3"></script>
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
