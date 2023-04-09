@@ -103,7 +103,6 @@ async function fetchData() {
 
         moddate = convertDate(d.date)
         const date2 = new Date(d.date)
-        date2.setHours(date2.getHours() - 7);
         if (date2 > lastdate) {
           lastdate = date2
         }
@@ -175,7 +174,6 @@ function convertDate(date) {
   date = date.replace(' ', 'T');
   const dateObj = new Date(date);
   // Hole den Zeitzone-Offset des Clients in Minuten
-  dateObj.setHours(dateObj.getHours() - 7);
   // Passe das Datum entsprechend dem Offset an
 
   // Erstelle Variablen für den heutigen Tag und das heutige Jahr
@@ -204,7 +202,6 @@ function convertDate(date) {
 
 function convertDate2(isoDateString) {
   let date = new Date(isoDateString);
-  date.setHours(date.getHours() - 7);
   const options = {
     month: "long",
     day: "numeric",
