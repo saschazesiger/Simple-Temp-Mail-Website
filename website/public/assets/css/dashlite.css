@@ -92,7 +92,7 @@
   --bs-gray-900: #1f2b3a;
   --bs-primary: #2263b3;
   --bs-secondary: #364a63;
-  --bs-success: #1ee0ac;
+  --bs-success: #149875;
   --bs-info: #09c2de;
   --bs-warning: #f4bd0e;
   --bs-danger: #e85347;
@@ -29470,6 +29470,7 @@ body.nav-shown {
   min-height: 100%;
 }
 .nk-header-menu.mobile-menu {
+  text-align: center;
   padding-top: 65px;
   padding-bottom: 2.5rem;
   padding-left: 0;
@@ -29824,7 +29825,7 @@ body.nav-shown {
     display: inline-block;
   }
   .nk-menu > li.nk-menu-item {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
   .nk-menu > li.nk-menu-item > .nk-menu-link {
     padding: 1.25rem 0;

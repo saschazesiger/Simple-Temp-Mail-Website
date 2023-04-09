@@ -25,13 +25,13 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.post('/inbox', async (req, res) => {
+  console.log("New Email")
 
     if (req.body.key !== process.env.privatekey) {
         return res.status(403).send();
     }
 
     const parsedbody = await simpleParser(req.body.body)
-    console.log(parsedbody.from.text);
 
     const sql = `INSERT INTO mail (sender, receiver, date, header, body) VALUES ("${parsedbody.from.text}", "${req.body.to}", NOW(), "${parsedbody.subject}", "${parsedbody.html.replaceAll('"', "'")}")`;
 
@@ -51,7 +51,6 @@ app.get('/api/mail', (req, res) => {
     const email = req.query.email;
 
     const date = req.query.lastdate;
-    console.log(date);
     
     
     newdate = new Date(date)
@@ -80,7 +79,6 @@ app.get('/api/mail', (req, res) => {
       const data = results;
   
       // Senden Sie das JSON-Objekt mit den abgerufenen Daten zurück
-      console.log(data)
       res.json(data);
     });
   });

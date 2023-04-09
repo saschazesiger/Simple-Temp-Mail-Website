@@ -1,4 +1,5 @@
 const e_email = document.getElementById('email');
+const change_email = document.getElementById('changeMail');
 const e_email2 = document.getElementById('email2');
 const e_profile = document.getElementById('profile');
 const status = document.getElementById('status');
@@ -6,16 +7,15 @@ const status_icon = document.getElementById('status-icon');
 const senderElement = document.getElementById('sender-tag');
 const titleElement = document.getElementById('title-tag');
 const dateElement = document.getElementById('date-tag');
+const input = document.getElementById("changeMail");
 
 const mail = {}
+let timer = 0;
+let interval = 1;
 
 let lastdate = new Date(2000)
 
 function runsync() {
-  //Führe nach 2 sekunden aus
-  setTimeout(() => {
-    document.getElementById('turnstile').remove()
-  }, 2000);
 
   function generateRandomEmail() {
     const randomString = generateRandomString();
@@ -56,13 +56,16 @@ function runsync() {
   const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
   window.history.pushState({}, '', newUrl);
 
-  e_email.innerText = randomEmail;
+  e_email.innerHTML = randomEmail;
+  change_email.value = randomEmail.replace('@goog.re', '')
   e_email2.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
-  setInterval(fetchData, 2000);
+  interval = setInterval(fetchData, 2000);
 }
 
 async function fetchData() {
+
+
   try {
     const response = await fetch(`/api/mail?email=${e_email.innerText}&lastdate=${lastdate}`);
     const data = await response.json();
@@ -84,11 +87,11 @@ async function fetchData() {
         }
 
         mail[d.id] = {
-          sender : d.sender,
-          receiver : d.receiver,
-          header : d.header,
-          body : d.body,
-          date : d.date,
+          sender: d.sender,
+          receiver: d.receiver,
+          header: d.header,
+          body: d.body,
+          date: d.date,
         }
 
         // Speichern Sie die Daten in Variablen
@@ -118,7 +121,7 @@ async function fetchData() {
                 <!--div class="lable-tag dot bg-pink"></div-->
             </div>
             <div class="nk-msg-meta">
-                <div class="date">${d.moddate}</div>
+                <div class="date">${moddate}</div>
             </div>
         </div>
         <div class="nk-msg-context">
@@ -149,10 +152,23 @@ async function fetchData() {
     status_icon.classList.add('text-danger');
     status_icon.classList.remove('text-success');
   }
+
+  timer = timer + 1
+  if (timer > 30) {
+    status.innerText = 'Inactive (Click to reconnect)';
+    status.classList.remove('text-danger');
+    status.classList.remove('text-success');
+    status_icon.classList.remove('text-danger');
+    status_icon.classList.remove('text-success');
+    status_icon.style.display = 'none';
+    clearInterval(interval);
+    interval = null;
+  }
 }
 
 
 function convertDate(date) {
+  console.log(date)
   date = date.replace(' ', 'T');
   const dateObj = new Date(date);
   // Hole den Zeitzone-Offset des Clients in Minuten
@@ -181,6 +197,22 @@ function convertDate(date) {
 
     return `${formattedDate}${yearSuffix}`;
   }
+}
+
+function convertDate2(isoDateString) {
+  let date = new Date(isoDateString);
+  date.setHours(date.getHours() - 7);
+  const options = {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  };
+  const formattedDate = date.toLocaleDateString("en-US", options);
+  console.log(formattedDate);
+  return formattedDate;
 
 }
 
@@ -190,19 +222,92 @@ let messageElements = document.querySelectorAll('.nk-msg-item');
 
 
 function select(event) {
-  console.log(event)
+  // Wähle alle Elemente mit der Klasse "element"
+  const elements = document.querySelectorAll('.nk-msg-item');
+  document.getElementById('nk-msg-head').style.display = 'block';
+  document.getElementById('right').style.display = 'block';
+
+  // Iteriere durch alle ausgewählten Elemente
+  elements.forEach(function (element) {
+    element.classList.remove('current')
+
+  });
+
   const selected = event.currentTarget;
   selected.classList.add('current');
 
 
   const content = mail[selected.querySelector('.id').innerText];
-  console.log(content)
 
   document.getElementById('title-tag').innerText = content.header;
-  document.getElementById('date-tag').innerText = content.date;
+  document.getElementById('date-tag').innerText = convertDate2(content.date);
   document.getElementById('body-tag').innerHTML = content.body;
+  document.getElementById('sender-icon').innerText = content.sender.slice(0, 2).toUpperCase();
+  if (content.sender.includes('<')) {
+    const parts = content.sender.split("<");
+    const sender_name = parts[0].trim();
+    const sender_email = parts[1].replace(">", "").trim();
+    document.getElementById('sender-name').innerText = sender_name;
+    document.getElementById('sender-mail').innerText = sender_email;
+  } else {
+    document.getElementById('sender-mail').innerText = content.sender;
+  };
+}
 
-};
+document.addEventListener("click", function (event) {
+  status_icon.style.display = 'inline-block';
+  timer = 0
+  if (!interval) {
+    interval = setInterval(fetchData, 2000);
+  }
+});
+
+
+const textToCopy = document.getElementById('copy');
+textToCopy.addEventListener('click', function () {
+  const text = document.getElementById('email').innerText;
+  navigator.clipboard.writeText(text).then(function () {
+    textToCopy.classList.remove('bi-clipboard')
+    textToCopy.classList.add('bi-clipboard2-check-fill')
+    textToCopy.style.color = "green"
+    setTimeout(function () {
+      textToCopy.classList.add('bi-clipboard')
+      textToCopy.classList.remove('bi-clipboard2-check-fill')
+      textToCopy.style.color = "#526484"
+    }, 1000)
+  }, function () {
+    console.error('Fehler beim Kopieren des Textes.');
+  });
+});
+
+function edit() {
+  modifyWidth()
+  input.style.display = "inline-block";
+  e_email.innerText = "@goog.re"
+  document.getElementById('changeMail').focus();
+  document.getElementById('confirm').style.display = "inline-block";
+  document.getElementById('close').style.display = "inline-block";
+  document.getElementById('copy').style.display = "none";
+  document.getElementById('reload').style.display = "none";
+  document.getElementById('edit').style.display = "none";
+}
+
+function confirm() {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('email', input.value.replace('@goog.re', ''));
+  const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+  window.history.pushState({}, '', newUrl);
+  location.reload()
+}
+
+// Function to change the width of input
+function modifyWidth() {
+  input.style.width = (input.value.length * 0.55 + 3) + "em";
+}
+
+// add event listener to price
+var el = document.getElementById("changeMail");
+el.addEventListener("keyup", modifyWidth, false);
 
 
 
