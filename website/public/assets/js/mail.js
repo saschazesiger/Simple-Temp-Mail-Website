@@ -62,6 +62,7 @@ function runsync() {
   e_email2.innerText = randomEmail;
   e_email3.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
+  fetchData()
   interval = setInterval(fetchData, 2000);
 }
 

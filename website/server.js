@@ -58,12 +58,13 @@ app.get('/api/mail', (req, res) => {
     
     // Subtract two hours from the last date and convert it to a MySQL datetime string
     newdate = new Date(date)
-    newdate.setHours(newdate.getHours() - 2);
+    console.log(newdate,(new Date()))
+
     const mysqlDate = newdate.toISOString().slice(0, 19).replace('T', ' ');
 
     // Construct an SQL SELECT statement to fetch email data from the MySQL database
     const sql = `SELECT id,sender, receiver, header, body, date FROM mail WHERE receiver='${email}' AND date > '${mysqlDate}' ORDER BY date DESC LIMIT 50`;
-
+  
     // Execute the SQL statement using the MySQL connection
     connection.query(sql, (error, results, fields) => {
         if (error) {
@@ -80,7 +81,7 @@ app.get('/api/mail', (req, res) => {
 
         // Extract email data from the query results
         const data = results;
-
+        console.log(data)
         // Send the email data as a JSON response
         res.json(data);
     });
