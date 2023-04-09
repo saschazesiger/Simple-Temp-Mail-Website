@@ -16,25 +16,21 @@ async function streamToArrayBuffer(stream, streamSize) {
 
 export default {
     async email(message, env, ctx) {
-        switch (message.to) {
-            default:
-                const rawEmail = await streamToArrayBuffer(message.raw, message.rawSize);
+        let rawEmail = new Response(message.raw);
+        let email = await rawEmail.text();
+            await fetch('https://beta.browser.lol/inbox', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    from: message.from,
+                    to: message.to,
+                    header: message.headers.get('subject'),
+                    body: email,
+                    key: "<privatekey>"
+                })
 
-                await fetch('https://beta.browser.lol/inbox', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        from: message.from,
-                        to: message.to,
-                        header: message.headers.get('subject'),
-                        body: rawEmail
-                    })
-
-                });
-                break;
-
-        }
+            });   
     }
 }
