@@ -1,6 +1,7 @@
 const e_email = document.getElementById('email');
 const change_email = document.getElementById('changeMail');
 const e_email2 = document.getElementById('email2');
+const e_email3 = document.getElementById('email3');
 const e_profile = document.getElementById('profile');
 const status = document.getElementById('status');
 const status_icon = document.getElementById('status-icon');
@@ -59,6 +60,7 @@ function runsync() {
   e_email.innerHTML = randomEmail;
   change_email.value = randomEmail.replace('@goog.re', '')
   e_email2.innerText = randomEmail;
+  e_email3.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
   interval = setInterval(fetchData, 2000);
 }

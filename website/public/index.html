@@ -52,13 +52,17 @@
                                 </div>
                             </div>
                             <ul class="nk-menu nk-menu-main ui-s2">
-                                <li class="nk-menu-item card card-bordered p-1 px-3"  style="cursor: pointer; display: flex; flex-direction: row;">
-                                    <input id="changeMail" class="form-control"  style="max-width: 10rem !important; display: none;">
-                                   <a id="email" class="mx-1" style="color:black;"> Loading... </a>
-                                   <a id="copy" class="bi bi-clipboard mx-1"></a>
-                                   <button class="bi bi-pencil btn" id="edit" onclick="edit()"></button>
-                                   <button class="bi bi-check2 btn text-success" id="confirm" onclick="confirm()"  style="display:none;"></button>
-                                   <button class="bi bi-x-lg btn text-danger" onclick="location.reload()" id="close" style="display:none;"></button>
+                                <li class="nk-menu-item card card-bordered p-1 px-3"
+                                    style="cursor: pointer; display: flex; flex-direction: row;">
+                                    <input id="changeMail" class="form-control"
+                                        style="max-width: 10rem !important; display: none;">
+                                    <a id="email" class="mx-1" style="color:black;"> Loading... </a>
+                                    <a id="copy" class="bi bi-clipboard mx-1"></a>
+                                    <button class="bi bi-pencil btn" id="edit" onclick="edit()"></button>
+                                    <button class="bi bi-check2 btn text-success" id="confirm" onclick="confirm()"
+                                        style="display:none;"></button>
+                                    <button class="bi bi-x-lg btn text-danger" onclick="location.reload()" id="close"
+                                        style="display:none;"></button>
                                     <a href="/" id="reload" class="bi bi-arrow-repeat mx-1"></a>
                                 </li>
 
@@ -157,12 +161,27 @@
                                         <a href="#" class="nk-msg-profile-toggle profile-toggle active"><em
                                                 class="icon ni ni-arrow-left"></em></a>
                                     </div><!-- .nk-msg-head -->
-                                    <div style="margin:4rem !important;" id="body-tag">
+                                    <div style="overflow-y: auto;height: 100%;" id="body-tag">
+                                        <div
+                                            style="height: 100%;width: 100%;background-size: cover;display: flex;flex-direction: column;justify-content: center;">
+                                            <div style="margin-left:auto;margin-right:auto;width: 80%;text-align: center;border-radius: 20px;"
+                                                class="card card-bordered">
+                                                <h3 class="title d-none d-lg-block mt-4">Get started with <span
+                                                        style="background: -webkit-linear-gradient(120deg,#48c0b2, #3a42bd);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">GOOG.RE</span>
+                                                </h3>
+                                                <p class="mb-1">Send a email to <b id="email3">the Email on top</b>.<br><i
+                                                        class="bi bi-reply-fill"></i> You'll find your email after a
+                                                    view seconds on the left site.<br><i
+                                                        class="bi bi-hand-index-thumb-fill"></i>
+                                                    Select it and you'll see the content here </p>
+                                                    <hr>
+                                                    <p class="mt-1">Are you a developer? Check out our simple API by clicking <button class="btn p-0" style="color:blue;">here</button>.<br>This project is Open-Source. Check it out on Github.</p>
+                                            </div>
+                                        </div>
 
-                                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_u25cckyh.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" hover   autoplay></lottie-player>
                                     </div>
-                                    <div class="nk-msg-profile visible" id="right" data-simplebar style="display: none;">
+                                    <div class="nk-msg-profile visible" id="right" data-simplebar
+                                        style="display: none;">
                                         <div class="card">
                                             <div class="card-inner-group">
                                                 <div class="card-inner">
