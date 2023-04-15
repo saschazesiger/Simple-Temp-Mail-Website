@@ -9,12 +9,12 @@ const senderElement = document.getElementById('sender-tag');
 const titleElement = document.getElementById('title-tag');
 const dateElement = document.getElementById('date-tag');
 const input = document.getElementById("changeMail");
+const sidebar = document.getElementById('sidebar-mails');
+const firstChild = sidebar.firstChild;
+
 
 const mail = {}
-let timer = 0;
-let interval = 1;
 
-let lastdate = new Date(2000)
 
 function runsync() {
 
@@ -63,14 +63,62 @@ function runsync() {
   e_email3.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
   fetchData()
-  interval = setInterval(fetchData, 2000);
+
+
+
+  const realtime = new Ably.Realtime.Promise("KrffQw.Xhhj-g:Hfp5GLom4hVodQ6jmqF4WoVFP9POX1-fRFsGOe8dPgc");
+
+  async function doPubSub() {
+    await realtime.connection.once("connected");
+    console.log("Connected!");
+    status.innerText = 'Connected';
+    status.classList.add('text-success');
+    status.classList.remove('text-danger');
+    status_icon.classList.add('text-success');
+    status_icon.classList.remove('text-danger');
+    const channel = realtime.channels.get(randomEmail);
+    console.log(randomEmail)
+    await channel.subscribe((msg) => {
+      console.log("Received: " + msg.data);
+              // Erstellen Sie ein neues Div-Element und fügen Sie es dem DOM hinzu
+
+              const newDiv = document.createElement('div');
+              newDiv.innerHTML = `
+          <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
+          <div class="nk-msg-media user-avatar">
+              <span>${msg.data.from.slice(0, 2).toUpperCase()}</span>
+          </div>
+          <div class="nk-msg-info">
+              <div class="nk-msg-from">
+                  <div class="nk-msg-sender">
+                      <div class="sender">${msg.data.from}</div>
+                      <!--div class="lable-tag dot bg-pink"></div-->
+                  </div>
+                  <div class="nk-msg-meta">
+                      <div class="date">Now</div>
+                  </div>
+              </div>
+              <div class="nk-msg-context">
+                  <div class="nk-msg-text">
+                      <h6 class="title">...</h6>
+      
+                  </div>
+      
+              </div>
+          </div>
+          <p class="id" style="display:none;">...</p>
+      </div><!-- .nk-msg-item -->
+          `;
+          sidebar.insertBefore(newDiv, firstChild);
+    });
+  }
+
+  doPubSub();
 }
 
 async function fetchData() {
-
-
   try {
-    const response = await fetch(`/api/mail?email=${e_email.innerText}&lastdate=${lastdate}`);
+    const response = await fetch(`/api/mail?email=${e_email.innerText}`);
     const data = await response.json();
 
     const sidebar = document.getElementById('sidebar-mails');
@@ -102,10 +150,6 @@ async function fetchData() {
 
 
         moddate = convertDate(d.date)
-        const date2 = new Date(d.date)
-        if (date2 > lastdate) {
-          lastdate = date2
-        }
 
 
 
@@ -153,18 +197,6 @@ async function fetchData() {
     status.classList.remove('text-success');
     status_icon.classList.add('text-danger');
     status_icon.classList.remove('text-success');
-  }
-
-  timer = timer + 1
-  if (timer > 30) {
-    status.innerText = 'Inactive (Click to reconnect)';
-    status.classList.remove('text-danger');
-    status.classList.remove('text-success');
-    status_icon.classList.remove('text-danger');
-    status_icon.classList.remove('text-success');
-    status_icon.style.display = 'none';
-    clearInterval(interval);
-    interval = null;
   }
 }
 
@@ -216,10 +248,7 @@ function convertDate2(isoDateString) {
 
 }
 
-
-
 let messageElements = document.querySelectorAll('.nk-msg-item');
-
 
 function select(event) {
   // Wähle alle Elemente mit der Klasse "element"
@@ -254,13 +283,6 @@ function select(event) {
   };
 }
 
-document.addEventListener("click", function (event) {
-  status_icon.style.display = 'inline-block';
-  timer = 0
-  if (!interval) {
-    interval = setInterval(fetchData, 2000);
-  }
-});
 
 
 const textToCopy = document.getElementById('copy');

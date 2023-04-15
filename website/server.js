@@ -26,6 +26,7 @@ const connection = mysql.createConnection({
 // Serve static files from the public directory
 app.use(express.static(__dirname + '/public'));
 
+
 // Define a POST route for handling incoming emails
 app.post('/inbox', async (req, res) => {
     console.log("New Email");
@@ -52,7 +53,7 @@ app.post('/inbox', async (req, res) => {
 });
 
 // Define a GET route for fetching email data
-app.get('/api/mail', (req, res) => {
+/*app.get('/api/mail', (req, res) => {
     const email = req.query.email;
     const date = req.query.lastdate;
     
@@ -85,7 +86,7 @@ app.get('/api/mail', (req, res) => {
         // Send the email data as a JSON response
         res.json(data);
     });
-});
+});*/
 
 // Start the server on port 5000 and log a message to the console
 app.listen(5000, () => {
