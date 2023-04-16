@@ -15,6 +15,7 @@ const firstChild = sidebar.firstChild;
 
 
 const mail = {}
+mail.active = false
 
 
 function runsync() {
@@ -63,7 +64,6 @@ function runsync() {
   e_email2.innerText = randomEmail;
   e_email3.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
-  fetchData()
 
 
   async function fetchRealtime() {
@@ -132,35 +132,25 @@ function runsync() {
     status_icon.classList.remove('text-danger');
 
     const channel = realtime.channels.get(randomEmail);
-    console.log(randomEmail)
     await channel.subscribe((msg) => {
-      console.log("Received: " + JSON.stringify(msg.data.parsedEmail.from));
-      document.getElementById('body-tag').innerHTML = msg.data;
-      // Erstellen Sie ein neues Div-Element und fügen Sie es dem DOM hinzu
-      // Import the emailjs-mime-parser library
-      moddate = convertDate(msg.data.parsedEmail.date)
-      moddate2 = convertDate2(msg.data.parsedEmail.date)
-
+      console.log("Received: " + JSON.stringify(msg.data.from));
+      moddate = convertDate(msg.data.date)
+      moddate2 = convertDate2(msg.data.date)
       randomid = generateRandomString(10)
 
-      mail[randomid] = {
-        sender: msg.data.parsedEmail.from.name,
-        receiver: msg.data.parsedEmail.to.email,
-        header: msg.data.parsedEmail.subject,
-        body: msg.data.parsedEmail.html,
-        date: moddate2,
-      }
+      mail[randomid] = msg.data
+
       // Parse the email data from the input string
       const newDiv = document.createElement('div');
       newDiv.innerHTML = `
           <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
           <div class="nk-msg-media user-avatar">
-              <span>${msg.data.parsedEmail.from.name.slice(0, 2).toUpperCase()}</span>
+              <span>${msg.data.from.slice(0, 2).toUpperCase()}</span>
           </div>
           <div class="nk-msg-info">
               <div class="nk-msg-from">
                   <div class="nk-msg-sender">
-                      <div class="sender">${msg.data.parsedEmail.from.name}</div>
+                      <div class="sender">${msg.data.from}</div>
                       <!--div class="lable-tag dot bg-pink"></div-->
                   </div>
                   <div class="nk-msg-meta">
@@ -169,7 +159,7 @@ function runsync() {
               </div>
               <div class="nk-msg-context">
                   <div class="nk-msg-text">
-                      <h6 class="title">${msg.data.parsedEmail.subject}</h6>
+                      <h6 class="title">${msg.data.subject}</h6>
       
                   </div>
       
@@ -179,7 +169,6 @@ function runsync() {
       </div><!-- .nk-msg-item -->
           `;
       sidebar.insertBefore(newDiv, firstChild);
-      document.getElementById('body-tag').innerHTML = msg.data.parsedEmail.html;
     });
   }
   fetchRealtime()
@@ -188,134 +177,21 @@ function runsync() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function fetchData() {
-  try {
-    const response = await fetch(`/api/mail?email=${e_email.innerText}`);
-    const data = await response.json();
-
-    const sidebar = document.getElementById('sidebar-mails');
-    const firstChild = sidebar.firstChild;
-
-    if (data.length < 1) {
-      console.log('No new mails');
-    } else {
-
-      for (const d of data) {
-        const email = e_email.innerText;
-
-
-        // Überprüfen Sie, ob das JSON-Objekt die erwarteten Eigenschaften hat
-        if (!d.sender || !d.receiver || !d.header || !d.body) {
-          throw new Error("Ungültiges JSON-Objekt zurückgegeben.");
-        }
-
-        randomid = generateRandomString(10)
-
-        mail[randomid] = {
-          sender: d.sender,
-          receiver: d.receiver,
-          header: d.header,
-          body: d.body,
-          date: d.date,
-        }
-
-        // Speichern Sie die Daten in Variablen
-        const id = d.id;
-
-
-        moddate = convertDate(d.date)
-
-
-
-
-        // Erstellen Sie ein neues Div-Element und fügen Sie es dem DOM hinzu
-        const newDiv = document.createElement('div');
-        newDiv.innerHTML = `
-    <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
-    <div class="nk-msg-media user-avatar">
-        <span>${d.sender.slice(0, 2).toUpperCase()}</span>
-    </div>
-    <div class="nk-msg-info">
-        <div class="nk-msg-from">
-            <div class="nk-msg-sender">
-                <div class="sender">${d.sender}</div>
-                <!--div class="lable-tag dot bg-pink"></div-->
-            </div>
-            <div class="nk-msg-meta">
-                <div class="date">${moddate}</div>
-            </div>
-        </div>
-        <div class="nk-msg-context">
-            <div class="nk-msg-text">
-                <h6 class="title">${d.header}</h6>
-
-            </div>
-
-        </div>
-    </div>
-    <p class="id" style="display:none;">${d.id}</p>
-</div><!-- .nk-msg-item -->
-    `;
-        sidebar.insertBefore(newDiv, firstChild);
-      }
-      messageElements = document.querySelectorAll('.nk-msg-item');
-    }
-    status.innerText = 'Connected';
-    status.classList.add('text-success');
-    status.classList.remove('text-danger');
-    status_icon.classList.add('text-success');
-    status_icon.classList.remove('text-danger');
-  } catch (error) {
-    console.log(error)
-    status.innerText = 'Reconnecting...';
-    status.classList.add('text-danger');
-    status.classList.remove('text-success');
-    status_icon.classList.add('text-danger');
-    status_icon.classList.remove('text-success');
-  }
-}
-
-
 function convertDate(date) {
-  console.log(date)
   date = date.replace(' ', 'T');
   const dateObj = new Date(date);
-  // Hole den Zeitzone-Offset des Clients in Minuten
-  // Passe das Datum entsprechend dem Offset an
-
-  // Erstelle Variablen für den heutigen Tag und das heutige Jahr
   const today = new Date();
   const currentYear = today.getFullYear();
-
-  // Prüfe, ob das Datum heute ist
   if (dateObj.toDateString() === today.toDateString()) {
-    // Zeige die Uhrzeit an, wenn es heute ist
     const hours = dateObj.getHours().toString().padStart(2, '0');
     const minutes = dateObj.getMinutes().toString().padStart(2, '0');
     const formattedTime = `${hours}:${minutes}`;
     return formattedTime;
   } else {
-    // Zeige das Datum im Format "Tag. Monat" an, wenn es nicht heute ist
     const options = { day: 'numeric', month: 'short' };
     const formattedDate = dateObj.toLocaleDateString('de-DE', options);
-
-    // Füge das Jahr hinzu, wenn es ein anderes Jahr als das aktuelle ist
     const year = dateObj.getFullYear();
     const yearSuffix = (year !== currentYear) ? ` ${year}` : '';
-
     return `${formattedDate}${yearSuffix}`;
   }
 }
@@ -331,43 +207,35 @@ function convertDate2(isoDateString) {
     hour12: true
   };
   const formattedDate = date.toLocaleDateString("en-US", options);
-  console.log(formattedDate);
   return formattedDate;
-
 }
 
 let messageElements = document.querySelectorAll('.nk-msg-item');
 
 function select(event) {
-  // Wähle alle Elemente mit der Klasse "element"
+  if(mail.active === false){
+    mail.active = true;
+  }
   const elements = document.querySelectorAll('.nk-msg-item');
   document.getElementById('nk-msg-head').style.display = 'block';
   document.getElementById('right').style.display = 'block';
-
-  // Iteriere durch alle ausgewählten Elemente
   elements.forEach(function (element) {
     element.classList.remove('current')
-
   });
-
   const selected = event.currentTarget;
   selected.classList.add('current');
-
-
   const content = mail[selected.querySelector('.id').innerText];
-
-  document.getElementById('title-tag').innerText = content.header;
+  document.getElementById('title-tag').innerText = content.subject;
+  document.getElementById('receiver-tag').innerText = "To: "+content.to+", ID: "+content.messageId;
   document.getElementById('date-tag').innerText = convertDate2(content.date);
-  document.getElementById('body-tag').innerHTML = content.body;
-  document.getElementById('sender-icon').innerText = content.sender.slice(0, 2).toUpperCase();
-  if (content.sender.includes('<')) {
-    const parts = content.sender.split("<");
-    const sender_name = parts[0].trim();
-    const sender_email = parts[1].replace(">", "").trim();
-    document.getElementById('sender-name').innerText = sender_name;
-    document.getElementById('sender-mail').innerText = sender_email;
+  document.getElementById('body-tag').innerHTML = content.html;
+  document.getElementById('headers').innerText = JSON.stringify(content.headers);
+  document.getElementById('sender-icon').innerText = content.from.slice(0, 2).toUpperCase();
+  if (content.from) {
+    document.getElementById('sender-name').innerText = content.from;
+    document.getElementById('sender-mail').innerText = content.from_mail;
   } else {
-    document.getElementById('sender-mail').innerText = content.sender;
+    document.getElementById('sender-mail').innerText = content.from_mail;
   };
 }
 
