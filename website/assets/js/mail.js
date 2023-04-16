@@ -98,7 +98,6 @@ function runsync() {
           `;
       sidebar.insertBefore(newDiv, sidebar.firstChild);
     }
-    document.getElementById('body-tag').innerHTML = htmlBody; 
   })
   .catch(error => {
     console.error(error);
