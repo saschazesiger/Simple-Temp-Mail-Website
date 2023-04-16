@@ -11,7 +11,6 @@ const titleElement = document.getElementById('title-tag');
 const dateElement = document.getElementById('date-tag');
 const input = document.getElementById("changeMail");
 const sidebar = document.getElementById('sidebar-mails');
-const firstChild = sidebar.firstChild;
 
 
 const mail = {}
@@ -25,16 +24,13 @@ function runsync() {
     const email = randomString + '@goog.re';
     return email;
   }
-
   function generateRandomString() {
     const allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-';
     const length = Math.floor(Math.random() * 6) + 5;
     let randomString = '';
-
     for (let i = 0; i < length; i++) {
       randomString += allowedChars.charAt(Math.floor(Math.random() * allowedChars.length));
     }
-
     return randomString;
   }
 
@@ -65,6 +61,48 @@ function runsync() {
   e_email3.innerText = randomEmail;
   e_profile.innerText = randomEmail.slice(0, 2).toUpperCase();
 
+  fetch(`https://get.goog.re/?${randomEmail}`)
+  .then(response => response.json()) 
+  .then(htmlBody => {
+    const keys = Object.keys(htmlBody);
+    for (let i = 0; i < keys.length; i++) {
+      const id = keys[i];
+      const info = htmlBody[id];
+      console.log(info);
+      mail[info.randomid] = info
+      moddate = convertDate(info.date)
+      const newDiv = document.createElement('div');
+      newDiv.innerHTML = `
+          <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
+          <div class="nk-msg-media user-avatar">
+              <span>${info.from.slice(0, 2).toUpperCase()}</span>
+          </div>
+          <div class="nk-msg-info">
+              <div class="nk-msg-from">
+                  <div class="nk-msg-sender">
+                      <div class="sender">${info.from}</div>
+                      <!--div class="lable-tag dot bg-pink"></div-->
+                  </div>
+                  <div class="nk-msg-meta">
+                      <div class="date">${moddate}</div>
+                  </div>
+              </div>
+              <div class="nk-msg-context">
+                  <div class="nk-msg-text">
+                      <h6 class="title" style="font-weight:300">${info.subject}</h6>
+                  </div>
+              </div>
+          </div>
+          <p class="id" style="display:none;">${info.randomid}</p>
+      </div><!-- .nk-msg-item -->
+          `;
+      sidebar.insertBefore(newDiv, sidebar.firstChild);
+    }
+    document.getElementById('body-tag').innerHTML = htmlBody; 
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
   async function fetchRealtime() {
     const realtime = new Ably.Realtime.Promise("KrffQw.Xhhj-g:Hfp5GLom4hVodQ6jmqF4WoVFP9POX1-fRFsGOe8dPgc");
@@ -131,16 +169,15 @@ function runsync() {
     status_icon.classList.add('text-success');
     status_icon.classList.remove('text-danger');
 
-    const channel = realtime.channels.get(randomEmail);
+    const channel = realtime.channels.get(randomEmail.replace('@goog.re', '').toLowerCase());
     await channel.subscribe((msg) => {
       console.log("Received: " + JSON.stringify(msg.data.from));
       moddate = convertDate(msg.data.date)
       moddate2 = convertDate2(msg.data.date)
-      randomid = generateRandomString(10)
+      randomid = msg.data.id
 
       mail[randomid] = msg.data
 
-      // Parse the email data from the input string
       const newDiv = document.createElement('div');
       newDiv.innerHTML = `
           <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
@@ -160,15 +197,13 @@ function runsync() {
               <div class="nk-msg-context">
                   <div class="nk-msg-text">
                       <h6 class="title">${msg.data.subject}</h6>
-      
                   </div>
-      
               </div>
           </div>
           <p class="id" style="display:none;">${randomid}</p>
       </div><!-- .nk-msg-item -->
           `;
-      sidebar.insertBefore(newDiv, firstChild);
+      sidebar.insertBefore(newDiv, sidebar.firstChild);
     });
   }
   fetchRealtime()
@@ -176,7 +211,7 @@ function runsync() {
 
 
 
-
+// Show date formated
 function convertDate(date) {
   date = date.replace(' ', 'T');
   const dateObj = new Date(date);
@@ -195,7 +230,6 @@ function convertDate(date) {
     return `${formattedDate}${yearSuffix}`;
   }
 }
-
 function convertDate2(isoDateString) {
   let date = new Date(isoDateString);
   const options = {
@@ -212,6 +246,8 @@ function convertDate2(isoDateString) {
 
 let messageElements = document.querySelectorAll('.nk-msg-item');
 
+
+// Select message and handle CSS
 function select(event) {
   if(mail.active === false){
     mail.active = true;
@@ -226,10 +262,9 @@ function select(event) {
   selected.classList.add('current');
   const content = mail[selected.querySelector('.id').innerText];
   document.getElementById('title-tag').innerText = content.subject;
-  document.getElementById('receiver-tag').innerText = "To: "+content.to+", ID: "+content.messageId;
+  document.getElementById('receiver-tag').innerText = "To: "+content.to
   document.getElementById('date-tag').innerText = convertDate2(content.date);
-  document.getElementById('body-tag').innerHTML = content.html;
-  document.getElementById('headers').innerText = JSON.stringify(content.headers);
+  document.getElementById('headers').innerText = "Message Identifier: "+content.messageId;
   document.getElementById('sender-icon').innerText = content.from.slice(0, 2).toUpperCase();
   if (content.from) {
     document.getElementById('sender-name').innerText = content.from;
@@ -237,10 +272,21 @@ function select(event) {
   } else {
     document.getElementById('sender-mail').innerText = content.from_mail;
   };
+
+  fetch(`https://get.goog.re/?${content.to}&${selected.querySelector('.id').innerText}`)
+    .then(response => response.text()) 
+    .then(htmlBody => {
+      document.getElementById('body-tag').innerHTML = htmlBody; 
+      console.log(htmlBody)
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
 }
 
 
-
+//Copy Email on Click
 const textToCopy = document.getElementById('copy');
 textToCopy.addEventListener('click', function () {
   const text = document.getElementById('email').innerText;
@@ -257,7 +303,23 @@ textToCopy.addEventListener('click', function () {
     console.error('Fehler beim Kopieren des Textes.');
   });
 });
+e_email.addEventListener('click', function () {
+  const text = document.getElementById('email').innerText;
+  navigator.clipboard.writeText(text).then(function () {
+    textToCopy.classList.remove('bi-clipboard')
+    textToCopy.classList.add('bi-clipboard2-check-fill')
+    textToCopy.style.color = "green"
+    setTimeout(function () {
+      textToCopy.classList.add('bi-clipboard')
+      textToCopy.classList.remove('bi-clipboard2-check-fill')
+      textToCopy.style.color = "#526484"
+    }, 1000)
+  }, function () {
+    console.error('Fehler beim Kopieren des Textes.');
+  });
+});
 
+// Edit function for Email
 function edit() {
   modifyWidth()
   input.style.display = "inline-block";
@@ -270,6 +332,7 @@ function edit() {
   document.getElementById('edit').style.display = "none";
 }
 
+// Confirm after editing
 function confirm() {
   const urlParams = new URLSearchParams(window.location.search);
   urlParams.set('email', input.value.replace('@goog.re', ''));
@@ -282,19 +345,10 @@ function confirm() {
 function modifyWidth() {
   input.style.width = (input.value.length * 0.55 + 3) + "em";
 }
-
-// add event listener to price
 var el = document.getElementById("changeMail");
 el.addEventListener("keyup", modifyWidth, false);
 
-function generateRandomString(length) {
-  let result = '';
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
+
+
 
 
