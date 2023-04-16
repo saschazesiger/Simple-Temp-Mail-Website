@@ -56,13 +56,15 @@
                                     style="cursor: pointer; display: flex; flex-direction: row;">
                                     <input id="changeMail" class="form-control"
                                         style="max-width: 10rem !important; display: none;">
-                                    <a id="email" class="mx-1" style="color:#566271;margin-right: 2rem !important;"> Loading... </a>
+                                    <a id="email" class="mx-1" style="color:#566271;margin-right: 2rem !important;">
+                                        Loading... </a>
                                     <a id="copy" class="bi bi-clipboard mx-1"></a>
-                                    <button class="bi bi-pencil btn" style="color:#8091a7" id="edit" onclick="edit()"></button>
-                                    <button class="bi bi-check-circle-fill btn text-success px-1" id="confirm" onclick="confirm()"
-                                        style="display:none;font-size: 20px;"></button>
-                                    <button class="bi bi-x-lg btn text-danger px-1" onclick="location.reload()" id="close"
-                                        style="display:none;"></button>
+                                    <button class="bi bi-pencil btn" style="color:#8091a7" id="edit"
+                                        onclick="edit()"></button>
+                                    <button class="bi bi-check-circle-fill btn text-success px-1" id="confirm"
+                                        onclick="confirm()" style="display:none;font-size: 20px;"></button>
+                                    <button class="bi bi-x-lg btn text-danger px-1" onclick="location.reload()"
+                                        id="close" style="display:none;"></button>
                                     <a href="/" id="reload" class="bi bi-arrow-repeat mx-1"></a>
                                 </li>
 
@@ -161,7 +163,8 @@
                                         <a href="#" class="nk-msg-profile-toggle profile-toggle active"><em
                                                 class="icon ni ni-arrow-left"></em></a>
                                     </div><!-- .nk-msg-head -->
-                                    <div style="overflow-y: auto;height: 100%;margin: 1rem;padding: 1rem;" class="card card-bordered"  id="body-tag">
+                                    <div style="overflow-y: auto;height: 100%;margin: 1rem;padding: 1rem;"
+                                        class="card card-bordered" id="body-tag">
                                         <div
                                             style="height: 100%;width: 100%;background-size: cover;display: flex;flex-direction: column;justify-content: center;">
                                             <div style="margin-left:auto;margin-right:auto;width: 80%;text-align: center;border-radius: 20px;"
@@ -169,13 +172,19 @@
                                                 <h3 class="title d-none d-lg-block mt-4">Get started with <span
                                                         style="background: -webkit-linear-gradient(120deg,#48c0b2, #3a42bd);-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-weight: 900;">GOOG.RE</span>
                                                 </h3>
-                                                <p class="mb-1">Send a email to <b id="email3">the Email on top</b>.<br><i
-                                                        class="bi bi-reply-fill"></i> You'll find your email after a
+                                                <p class="mb-1">Send a email to <b id="email3">the Email on
+                                                        top</b>.<br><i class="bi bi-reply-fill"></i> You'll find your
+                                                    email after a
                                                     view seconds on the left site.<br><i
                                                         class="bi bi-hand-index-thumb-fill"></i>
                                                     Select it and you'll see the content here </p>
-                                                    <hr>
-                                                    <p class="mt-1 mb-4">Are you a developer? Check out our simple API by clicking <a style="text-decoration: none;font-weight: 500;" href="#">here</a>.<br>This project is Open-Source. Check it out on <a style="text-decoration: none;font-weight: 500;" href="https://github.com/saschazesiger/Simple-Temp-Mail-Website">Github</a>.</p>
+                                                <hr>
+                                                <p class="mt-1 mb-4">Are you a developer? Check out our simple API by
+                                                    clicking <a style="text-decoration: none;font-weight: 500;"
+                                                        href="#">here</a>.<br>This project is Open-Source. Check it out
+                                                    on <a style="text-decoration: none;font-weight: 500;"
+                                                        href="https://github.com/saschazesiger/Simple-Temp-Mail-Website">Github</a>.
+                                                </p>
                                             </div>
                                         </div>
 
@@ -198,7 +207,15 @@
                                                 </div><!-- .card-inner -->
                                                 <div class="card-inner">
                                                     <h6>What is GOOG.RE?</h6>
-                                                                    <p class="mt-1 mb-4">Our platform provides a simple and convenient solution for generating temporary email addresses. <br>With just a few clicks, you can create a unique and temporary email address for various purposes without receiving spam or unwanted emails to your personal email address. <br><br>We offer a free <a href="https://github.com/saschazesiger/Simple-Temp-Mail-Website">API</a> for developers to integrate our service into their applications, and our entire project is open source.</p>
+                                                    <p class="mt-1 mb-4">Our platform provides a simple and convenient
+                                                        solution for generating temporary email addresses. <br>With just
+                                                        a few clicks, you can create a unique and temporary email
+                                                        address for various purposes without receiving spam or unwanted
+                                                        emails to your personal email address. <br><br>We offer a free
+                                                        <a
+                                                            href="https://github.com/saschazesiger/Simple-Temp-Mail-Website">API</a>
+                                                        for developers to integrate our service into their applications,
+                                                        and our entire project is open source.</p>
                                                 </div><!-- .card-inner -->
                                             </div>
                                         </div>
@@ -229,6 +246,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
     <script src="./assets/js/mail.js?ver=3.1.3"></script>
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>

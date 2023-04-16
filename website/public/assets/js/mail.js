@@ -1,3 +1,4 @@
+
 const e_email = document.getElementById('email');
 const change_email = document.getElementById('changeMail');
 const e_email2 = document.getElementById('email2');
@@ -65,56 +66,140 @@ function runsync() {
   fetchData()
 
 
+  async function fetchRealtime() {
+    const realtime = new Ably.Realtime.Promise("KrffQw.Xhhj-g:Hfp5GLom4hVodQ6jmqF4WoVFP9POX1-fRFsGOe8dPgc");
 
-  const realtime = new Ably.Realtime.Promise("KrffQw.Xhhj-g:Hfp5GLom4hVodQ6jmqF4WoVFP9POX1-fRFsGOe8dPgc");
+    realtime.connection.on("connecting", () => {
+      console.log("Verbinden...");
+      status.innerText = 'Connecting...';
+      status.classList.remove('text-success');
+      status.classList.remove('text-danger');
+      status_icon.classList.remove('text-success');
+      status_icon.classList.remove('text-danger');
+    });
 
-  async function doPubSub() {
+    realtime.connection.on("connected", () => {
+      console.log("Verbindung erfolgreich.");
+      status.innerText = 'Connected';
+      status.classList.add('text-success');
+      status.classList.remove('text-danger');
+      status_icon.classList.add('text-success');
+      status_icon.classList.remove('text-danger');
+    });
+
+    realtime.connection.on("disconnected", () => {
+      console.log("Verbindung geschlossen.");
+      status.innerText = 'Disconnected';
+      status.classList.remove('text-success');
+      status.classList.add('text-danger');
+      status_icon.classList.remove('text-success');
+      status_icon.classList.add('text-danger');
+    });
+
+    realtime.connection.on("suspended", () => {
+      console.log("Verbindung geschlossen.");
+      status.innerText = 'Disconnected';
+      status.classList.remove('text-success');
+      status.classList.add('text-danger');
+      status_icon.classList.remove('text-success');
+      status_icon.classList.add('text-danger');
+    });
+
+    realtime.connection.on("failed", () => {
+      console.log("Verbindung geschlossen.");
+      status.innerText = 'Disconnected';
+      status.classList.remove('text-success');
+      status.classList.add('text-danger');
+      status_icon.classList.remove('text-success');
+      status_icon.classList.add('text-danger');
+    });
+
+    realtime.connection.on("closed", () => {
+      console.log("Verbindung geschlossen.");
+      status.innerText = 'Disconnected';
+      status.classList.remove('text-success');
+      status.classList.add('text-danger');
+      status_icon.classList.remove('text-success');
+      status_icon.classList.add('text-danger');
+    });
+
+
     await realtime.connection.once("connected");
-    console.log("Connected!");
     status.innerText = 'Connected';
     status.classList.add('text-success');
     status.classList.remove('text-danger');
     status_icon.classList.add('text-success');
     status_icon.classList.remove('text-danger');
+
     const channel = realtime.channels.get(randomEmail);
     console.log(randomEmail)
     await channel.subscribe((msg) => {
-      console.log("Received: " + msg.data);
-              // Erstellen Sie ein neues Div-Element und fügen Sie es dem DOM hinzu
+      console.log("Received: " + JSON.stringify(msg.data.parsedEmail.from));
+      document.getElementById('body-tag').innerHTML = msg.data;
+      // Erstellen Sie ein neues Div-Element und fügen Sie es dem DOM hinzu
+      // Import the emailjs-mime-parser library
+      moddate = convertDate(msg.data.parsedEmail.date)
+      moddate2 = convertDate2(msg.data.parsedEmail.date)
 
-              const newDiv = document.createElement('div');
-              newDiv.innerHTML = `
+      randomid = generateRandomString(10)
+
+      mail[randomid] = {
+        sender: msg.data.parsedEmail.from.name,
+        receiver: msg.data.parsedEmail.to.email,
+        header: msg.data.parsedEmail.subject,
+        body: msg.data.parsedEmail.html,
+        date: moddate2,
+      }
+      // Parse the email data from the input string
+      const newDiv = document.createElement('div');
+      newDiv.innerHTML = `
           <div class="nk-msg-item" data-msg-id="1" onclick="select(event)">
           <div class="nk-msg-media user-avatar">
-              <span>${msg.data.from.slice(0, 2).toUpperCase()}</span>
+              <span>${msg.data.parsedEmail.from.name.slice(0, 2).toUpperCase()}</span>
           </div>
           <div class="nk-msg-info">
               <div class="nk-msg-from">
                   <div class="nk-msg-sender">
-                      <div class="sender">${msg.data.from}</div>
+                      <div class="sender">${msg.data.parsedEmail.from.name}</div>
                       <!--div class="lable-tag dot bg-pink"></div-->
                   </div>
                   <div class="nk-msg-meta">
-                      <div class="date">Now</div>
+                      <div class="date">${moddate}</div>
                   </div>
               </div>
               <div class="nk-msg-context">
                   <div class="nk-msg-text">
-                      <h6 class="title">...</h6>
+                      <h6 class="title">${msg.data.parsedEmail.subject}</h6>
       
                   </div>
       
               </div>
           </div>
-          <p class="id" style="display:none;">...</p>
+          <p class="id" style="display:none;">${randomid}</p>
       </div><!-- .nk-msg-item -->
           `;
-          sidebar.insertBefore(newDiv, firstChild);
+      sidebar.insertBefore(newDiv, firstChild);
+      document.getElementById('body-tag').innerHTML = msg.data.parsedEmail.html;
     });
   }
-
-  doPubSub();
+  fetchRealtime()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function fetchData() {
   try {
@@ -137,7 +222,9 @@ async function fetchData() {
           throw new Error("Ungültiges JSON-Objekt zurückgegeben.");
         }
 
-        mail[d.id] = {
+        randomid = generateRandomString(10)
+
+        mail[randomid] = {
           sender: d.sender,
           receiver: d.receiver,
           header: d.header,
@@ -150,6 +237,7 @@ async function fetchData() {
 
 
         moddate = convertDate(d.date)
+
 
 
 
@@ -331,6 +419,14 @@ function modifyWidth() {
 var el = document.getElementById("changeMail");
 el.addEventListener("keyup", modifyWidth, false);
 
-
+function generateRandomString(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 

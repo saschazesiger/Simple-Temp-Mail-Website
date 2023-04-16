@@ -1,252 +1,131 @@
-{
-    attachments: [],
-    headers: Map(17) {
-      'received' => [
-        'from m33-69.eu.mailgun.net (141.193.33.69) by email.cloudflare.net (unknown) id hjnP8tc5P7bA for <ilwefj@goog.re>; Fri,
-            07 Apr 2023 21: 03: 39 +0000',
-        'from <unknown> (<unknown> []) by e66c0dd9ba50 with HTTP id 6430852bd5e4c1434e2cb655; Fri,
-            07 Apr 2023 21: 03: 39 GMT'
-        ],
-      'received-spf' => 'pass (mx.cloudflare.net: domain of bounce+e2d5bb.7-ilwefj=goog.re@email.pingen.com designates 141.193.33.69 as permitted sender) helo="m33-69.eu.mailgun.net"; envelope-from="bounce+e2d5bb.7-ilwefj=goog.re@email.pingen.com";',
-      'authentication-results' => 'mx.cloudflare.net; spf=pass; dkim=neutral; dmarc=none;',
-      'arc-seal' => 'i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; cv=none; b=imuFzbqR+LwPWmhPW4jj5Adzeflv+Vdd7WkU0l1sD3PGZenndWIyrkHIGObpDNFDMruzudbQX iqCUzBJNjFRiqR1UVxQU+mhkCl89jJ5pnP/sAbEMomDsC6awBuhnA6c1dxi487knCaPt412Dy2e J7gpjX47SIz5MQnoPx3d8z4sMzsZhcnQswfl58zHpFWbttR0zHSOCGyh4+wVXSGLtV1rLJyO5TC lfshhTgISutfGu8iZR47z1gXNlrVtrq8jlpCNgcrcBrLgHHpkxxtdmot9puQYsS5nwAhOoMouN+ Rv9fn6vwfwT8JAq0YL7zU1nKM5RYxN6LOMq7Wv3UMvAw==;',
-      'arc-message-signature' => 'i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; c=relaxed/relaxed; h=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-unsubscribe :list-subscribe:list-post:list-owner:list-archive; t=1680901419; bh=WM9UZT1 jFkVHwnZkCJLvvTJgy21yDBomSZ8w2qmdE84=; b=cWNXgvlgAsBarHEqaSLOnFrsF7z/E53A4K m7uaoqdxCZm1HIQKvHW1P9BzSTO2O1GG+OxMvjhAiVJPGR/tUgHwrXL157s1buhYNBh5Fzi6G5X CCBgO8chLF4YXX4YORauFJJLYa5uQKHmWVRYMzUmtGehr1rEc4qYA81aJmxb+7eLOefa+7PP6Oo H7+FoHxHZN/NQV/G0XNECK6XveQ04Oh9FJcmbsYHvt8Nv6uEhSnftEP12KHreRNvAOF+Qd8o9EN L484upa0iUxELeMq65OeSdHNMUOF68/g3aEAUoLwQUBPfVJY6Sm3/AaiR/ie4bKUTEECxCqQeHt 7PNYWTXw==;',
-      'arc-authentication-results' => 'i=1; mx.cloudflare.net; dkim=pass header.d=email.pingen.com header.s=mailo header.b=PDTG3dRU; arc=none smtp.remote-ip=141.193.33.69',
-      'dkim-signature' => [
-            [Object
-            ],
-            [Object
-            ]
-        ],
-      'x-mailgun-sending-ip' => '141.193.33.69',
-      'x-mailgun-sid' => 'WyJhOTVhYiIsImlsd2VmakBnb29nLnJlIiwiNyJd',
-      'sender' => {
-        value: [Array
-            ],
-        html: '<span class="mp_address_group"><a href="mailto:no-reply=pingen.com@email.pingen.com" class="mp_address_email">no-reply=pingen.com@email.pingen.com</a></span>',
-        text: 'no-reply=pingen.com@email.pingen.com'
-        },
-      'from' => {
-        value: [Array
-            ],
-        html: '<span class="mp_address_group"><span class="mp_address_name">Pingen</span> &lt;<a href="mailto:no-reply@pingen.com" class="mp_address_email">no-reply@pingen.com</a>&gt;</span>',
-        text: 'Pingen <no-reply@pingen.com>'
-        },
-      'to' => {
-        value: [Array
-            ],
-        html: '<span class="mp_address_group"><a href="mailto:ilwefj@goog.re" class="mp_address_email">ilwefj@goog.re</a></span>',
-        text: 'ilwefj@goog.re'
-        },
-      'subject' => 'Confirm email address',
-      'message-id' => '<107828870c6dc86bef744bb7fb73990f@pingen.com>',
-      'mime-version' => '1.0',
-      'date' => 2023-04-07T21: 03: 39.000Z,
-      'content-type' => { value: 'multipart/alternative', params: [Object
-            ]
-        }
+Received: {
+  "headers": [
+    {
+      "key": "received",
+      "value": "from shout12.mail.de (2001:868:100:600::f154) by email.cloudflare.net (unknown) id guhz3ruGvUzg for <janis@goog.re>; Sun, 16 Apr 2023 12:08:32 +0000"
     },
-    headerLines: [
-        {
-        key: 'received',
-        line: 'Received: from m33-69.eu.mailgun.net (141.193.33.69)\r\n' +
-          '        by email.cloudflare.net (unknown) id hjnP8tc5P7bA\r\n' +
-          '        for <ilwefj@goog.re>; Fri,
-            07 Apr 2023 21: 03: 39 +0000'
-        },
-        {
-        key: 'received-spf',
-        line: 'Received-SPF: pass (mx.cloudflare.net: domain of bounce+e2d5bb.7-ilwefj=goog.re@email.pingen.com designates 141.193.33.69 as permitted sender)\r\n' +
-          '   helo="m33-69.eu.mailgun.net"; envelope-from="bounce+e2d5bb.7-ilwefj=goog.re@email.pingen.com";'
-        },
-        {
-        key: 'authentication-results',
-        line: 'Authentication-Results: mx.cloudflare.net; spf=pass; dkim=neutral; dmarc=none;'
-        },
-        {
-        key: 'arc-seal',
-        line: 'ARC-Seal: i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; cv=none;\r\n' +
-          '\tb=imuFzbqR+LwPWmhPW4jj5Adzeflv+Vdd7WkU0l1sD3PGZenndWIyrkHIGObpDNFDMruzudbQX\r\n' +
-          '\tiqCUzBJNjFRiqR1UVxQU+mhkCl89jJ5pnP/sAbEMomDsC6awBuhnA6c1dxi487knCaPt412Dy2e\r\n' +
-          '\tJ7gpjX47SIz5MQnoPx3d8z4sMzsZhcnQswfl58zHpFWbttR0zHSOCGyh4+wVXSGLtV1rLJyO5TC\r\n' +
-          '\tlfshhTgISutfGu8iZR47z1gXNlrVtrq8jlpCNgcrcBrLgHHpkxxtdmot9puQYsS5nwAhOoMouN+\r\n' +
-          '\tRv9fn6vwfwT8JAq0YL7zU1nKM5RYxN6LOMq7Wv3UMvAw==;'
-        },
-        {
-        key: 'arc-message-signature',
-        line: 'ARC-Message-Signature: i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; c=relaxed/relaxed;\r\n' +
-          '\th=Date:Subject:To:From:reply-to:cc:resent-date:resent-from:resent-to\r\n' +
-          '\t:resent-cc:in-reply-to:references:list-id:list-help:list-unsubscribe\r\n' +
-          '\t:list-subscribe:list-post:list-owner:list-archive; t=1680901419; bh=WM9UZT1\r\n' +
-          '\tjFkVHwnZkCJLvvTJgy21yDBomSZ8w2qmdE84=; b=cWNXgvlgAsBarHEqaSLOnFrsF7z/E53A4K\r\n' +
-          '\tm7uaoqdxCZm1HIQKvHW1P9BzSTO2O1GG+OxMvjhAiVJPGR/tUgHwrXL157s1buhYNBh5Fzi6G5X\r\n' +
-          '\tCCBgO8chLF4YXX4YORauFJJLYa5uQKHmWVRYMzUmtGehr1rEc4qYA81aJmxb+7eLOefa+7PP6Oo\r\n' +
-          '\tH7+FoHxHZN/NQV/G0XNECK6XveQ04Oh9FJcmbsYHvt8Nv6uEhSnftEP12KHreRNvAOF+Qd8o9EN\r\n' +
-          '\tL484upa0iUxELeMq65OeSdHNMUOF68/g3aEAUoLwQUBPfVJY6Sm3/AaiR/ie4bKUTEECxCqQeHt\r\n' +
-          '\t7PNYWTXw==;'
-        },
-        {
-        key: 'arc-authentication-results',
-        line: 'ARC-Authentication-Results: i=1; mx.cloudflare.net;\r\n' +
-          '\tdkim=pass header.d=email.pingen.com header.s=mailo header.b=PDTG3dRU;\r\n' +
-          '\tarc=none smtp.remote-ip=141.193.33.69'
-        },
-        {
-        key: 'dkim-signature',
-        line: 'DKIM-Signature: v=1; a=rsa-sha256; d=email.cloudflare.net; s=2022; c=relaxed/relaxed; bh=WM9UZT1jFkVHwnZkCJLvvTJgy21yDBomSZ8w2qmdE84=; h=from:subject:date:to; t=1680901419; b=cP4r+j6SMfz69jtqZxHRYIIF1XPNW5BQkefmvYrPRVgl5da/mPaXGrGO8k8PKE+q72ZtSNpSewAyawSjtHHmzLcYdyZOox9B0P8O0d+Et88Ii/BwlQQ+w0L1zzG6NeJjbrB7F5J/NbRGSb9dQ0nHCeXUqqJ6p7hjFagzRyMPfQU8OrMvDImo4FD1v5BoF3SkooSA0b6J6SZimE/qG7d9c4L3HJwGzrYDsoBeVd+UCfGJRiome6aWgkA+H8ioWdWuIzoz93Xel7r2Ib/gYlMsz6exvqaT800J8ykNjYp83nta3m+2dDhJNmvtXtRQ0+74FLeqn6NHc4Dd3CqBYTOAhg==;'
-        },
-        {
-        key: 'dkim-signature',
-        line: 'DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=email.pingen.com;\r\n' +
-          ' q=dns/txt; s=mailo; t=1680901419; x=1680908619; h=Content-Type: Date:\r\n' +
-          ' MIME-Version: Message-ID: Subject: Subject: To: To: From: From: Sender:\r\n' +
-          ' Sender; bh=WM9UZT1jFkVHwnZkCJLvvTJgy21yDBomSZ8w2qmdE84=;\r\n' +
-          ' b=PDTG3dRUKWWTAGqZuMbw5oKM5s00YgrdKwrht0+bD+4V28g01lhUR4nREh/Q3u4EICse6M6vvEB4glTlXfarMVA6LmdMe3nfPSHFKssm5wtmPNXUkIBPTe53FNFpkfUFg3fv8I7ModlZLwbPYVIfXlwOoW9SuvYQknDf8qIPi6I='
-        },
-        {
-        key: 'x-mailgun-sending-ip',
-        line: 'X-Mailgun-Sending-Ip: 141.193.33.69'
-        },
-        {
-        key: 'x-mailgun-sid',
-        line: 'X-Mailgun-Sid: WyJhOTVhYiIsImlsd2VmakBnb29nLnJlIiwiNyJd'
-        },
-        {
-        key: 'received',
-        line: 'Received: from <unknown> (<unknown> []) by e66c0dd9ba50 with HTTP id\r\n' +
-          ' 6430852bd5e4c1434e2cb655; Fri,
-            07 Apr 2023 21: 03: 39 GMT'
-        },
-        {
-        key: 'sender',
-        line: 'Sender: no-reply=pingen.com@email.pingen.com'
-        },
-        { key: 'from', line: 'From: Pingen <no-reply@pingen.com>'
-        },
-        { key: 'to', line: 'To: ilwefj@goog.re'
-        },
-        { key: 'subject', line: 'Subject: Confirm email address'
-        },
-        {
-        key: 'message-id',
-        line: 'Message-ID: <107828870c6dc86bef744bb7fb73990f@pingen.com>'
-        },
-        { key: 'mime-version', line: 'MIME-Version: 1.0'
-        },
-        { key: 'date', line: 'Date: Fri,
-            07 Apr 2023 23: 03: 39 +0200'
-        },
-        {
-        key: 'content-type',
-        line: 'Content-Type: multipart/alternative; boundary=av-F8_mg'
-        }
-    ],
-    html: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n' +
-      '<html xmlns="http://www.w3.org/1999/xhtml">\n' +
-      '<head>\n' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
-      '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n' +
-      '<meta name="color-scheme" content="light">\n' +
-      '<meta name="supported-color-schemes" content="light">\n' +
-      '<style>\n' +
-      '@media only screen and (max-width: 600px) {\n' +
-      '.inner-body {\n' +
-      'width: 100% !important;\n' +
-      '
-        }\n' +
-      '\n' +
-      '.footer {\n' +
-      'width: 100% !important;\n' +
-      '
-        }\n' +
-      '\n' +
-      '.footer td.content-cell{\n' +
-      '    padding: 32px 32px 25px 32px !important;\n' +
-      '
-        }\n' +
-      '
-    }\n' +
-      '\n' +
-      '@media only screen and (max-width: 500px) {\n' +
-      '.button {\n' +
-      'width: 100% !important;\n' +
-      '
-        }\n' +
-      '
-    }\n' +
-      '</style>\n' +
-      '</head>\n' +
-      `<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #000; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">\n` +
-      '\n' +
-      `<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #f7f8fc; margin: 0; padding: 0; width: 100%;"><tr>\n` +
-      `<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">\n` +
-      `<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">\n` +
-      '<tr>\n' +
-      `<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0 15px 0; text-align: center; background-color: #f7f8fc;">\n` +
-      `<a href="https://www.pingen.com/" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">\n` +
-      `<img style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none; width: 570px; height: auto;" class="logo" src="https://identity.pingen.com/static/email/pingen-logo.png"></a>\n` +
-      '</td>\n' +
-      '</tr>\n' +
-      '<!-- Email Body --><tr>\n' +
-      `<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #f7f8fc; border-bottom: 1px solid #f7f8fc; margin: 0; padding: 0; width: 100%;">\n` +
-      `<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 10px 10px 10px 10px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">\n` +
-      '<!-- Body content --><tr>\n' +
-      `<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px 32px 25px 32px;">\n` +
-      `<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 30px; font-weight: 400; line-height: 1.2em; margin-top: 10px; margin-bottom: 30px; text-align: left;">Confirm your email address</h1>\n` +
-      `<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 15px; line-height: 1.5em; margin-top: 0; text-align: left; font-weight: 400;">Welcome to Pingen! Please confirm your email address. After 24 hours, your account will be automatically suspended until your email address has been confirmed.</p>\n` +
-      `<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%;"><tr>\n` +
-      `<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">\n` +
-      `<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;"><tr>\n` +
-      `<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">\n` +
-      `<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;"><tr>\n` +
-      `<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">\n` +
-      `<a href="https://identity.pingen.com/auth/activate?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dWlkIjoiYzlkNjJlODYtMDBlOC00MjBmLWIzNTYtMWU2ZWFkY2ViNTMyIiwiZW1haWwiOiJpbHdlZmpAZ29vZy5yZSJ9.F97D3Ntq9hyhoPcniAlmU4EnsaLT2mq7oVKsXR1SDPOC9XZp2D2rRpq2Q-SCD-4qSkWfgxjeFzuuMouJwZfJp5nNi0xKQ-_0C5LZL6Rf6LzQc0A_LvKpfpuM1EFJuIWqajjFEM-z9gWeEoUvL_jzUG3l-IjuJSX191cE9GzPuc8DEfYopnhl85-LbkaEMjQOWM-_EMcEg7oqof0RyUWV8og8jRdm5ZbxBNwkDtKK-0zOYE-prTmY2lbNCfeJ-jT_NaWCRtMaTu5qRVBUZ4tagTFoMXU7iMP16ensPv9GvCjQpT1Mg3vn8yH9Vho5-Ncj6fqDRSHpDAee8uJ9uNJzQ18iczyFMNfBmJnNOfZTjfKqi6UbtAgvvaH3dbjZ6MyyLGTujLXU6Bfm8ZWNF6I_2H2J6-Z40RYAX4pMJ9NvYQi_9mDqBf4TXad5TyWpQjhHko1h4TWpEQQ3_OgU5z1MK6kBAQkKe1lCGeP54leiYyxWqv8SsYln8B9ZVr7yhlDoy7D4k5m9OzcfWLLxOaUh3G7tRh2wR0NXJv5J91bol87-Bg0yAuQHdByN1tUq16ilYK1sRw2Hf8OJ-fHE5o8_-KTEPbmvqXW-XLpZM5GS9xuwDWd8bbOTSq70bE1l7-0NZbfh1yxU7ooxC3IZgmVQLZ5NTPGjJI8REWj7DX1pUnE" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 50px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; padding: 5px 15px; background-color: #0758FF; border-bottom: 8px solid #0758FF; border-left: 18px solid #0758FF; border-right: 18px solid #0758FF; border-top: 8px solid #0758FF;">Confirm email address</a>\n` +
-      '</td>\n' +
-      '</tr></table>\n' +
-      '</td>\n' +
-      '</tr></table>\n' +
-      '</td>\n' +
-      '</tr></table>\n' +
-      '</td>\n' +
-      '</tr>\n' +
-      '</table>\n' +
-      '</td>\n' +
-      '</tr>\n' +
-      '<tr>\n' +
-      `<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">\n` +
-      `<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;"><tr>\n` +
-      `<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px 0 25px 0;">\n` +
-      `<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; font-weight: 400; color: #b0adc5; font-size: 12px; text-align: left;">You are receiving this email because a user i`... 566 more characters,
-    text: '[pingen2
-    ](https: //identity.pingen.com)\n' +
-      '\n' +
-      '# Confirm your email address\n' +
-      '\n' +
-      'Welcome to Pingen! Please confirm your email address. After 24 hours, your account will be automatically suspended until your email address has been confirmed.\n' +
-      '\n' +
-      'Confirm email address: https: //identity.pingen.com/auth/activate?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dWlkIjoiYzlkNjJlODYtMDBlOC00MjBmLWIzNTYtMWU2ZWFkY2ViNTMyIiwiZW1haWwiOiJpbHdlZmpAZ29vZy5yZSJ9.F97D3Ntq9hyhoPcniAlmU4EnsaLT2mq7oVKsXR1SDPOC9XZp2D2rRpq2Q-SCD-4qSkWfgxjeFzuuMouJwZfJp5nNi0xKQ-_0C5LZL6Rf6LzQc0A_LvKpfpuM1EFJuIWqajjFEM-z9gWeEoUvL_jzUG3l-IjuJSX191cE9GzPuc8DEfYopnhl85-LbkaEMjQOWM-_EMcEg7oqof0RyUWV8og8jRdm5ZbxBNwkDtKK-0zOYE-prTmY2lbNCfeJ-jT_NaWCRtMaTu5qRVBUZ4tagTFoMXU7iMP16ensPv9GvCjQpT1Mg3vn8yH9Vho5-Ncj6fqDRSHpDAee8uJ9uNJzQ18iczyFMNfBmJnNOfZTjfKqi6UbtAgvvaH3dbjZ6MyyLGTujLXU6Bfm8ZWNF6I_2H2J6-Z40RYAX4pMJ9NvYQi_9mDqBf4TXad5TyWpQjhHko1h4TWpEQQ3_OgU5z1MK6kBAQkKe1lCGeP54leiYyxWqv8SsYln8B9ZVr7yhlDoy7D4k5m9OzcfWLLxOaUh3G7tRh2wR0NXJv5J91bol87-Bg0yAuQHdByN1tUq16ilYK1sRw2Hf8OJ-fHE5o8_-KTEPbmvqXW-XLpZM5GS9xuwDWd8bbOTSq70bE1l7-0NZbfh1yxU7ooxC3IZgmVQLZ5NTPGjJI8REWj7DX1pUnE\n' +
-      '\n' +
-      'You are receiving this email because a user is registered using this email address at Pingen. If you have received this message accidentally, please contact our support.\n' +
-      '            © 2023 Pingen GmbH. All rights reserved.\n',
-    textAsHtml: '<p>[pingen2
-    ](<a href="https://identity.pingen.com">https: //identity.pingen.com</a>)</p><p># Confirm your email address</p><p>Welcome to Pingen! Please confirm your email address. After 24 hours, your account will be automatically suspended until your email address has been confirmed.</p><p>Confirm email address: <a href="https://identity.pingen.com/auth/activate?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dWlkIjoiYzlkNjJlODYtMDBlOC00MjBmLWIzNTYtMWU2ZWFkY2ViNTMyIiwiZW1haWwiOiJpbHdlZmpAZ29vZy5yZSJ9.F97D3Ntq9hyhoPcniAlmU4EnsaLT2mq7oVKsXR1SDPOC9XZp2D2rRpq2Q-SCD-4qSkWfgxjeFzuuMouJwZfJp5nNi0xKQ-_0C5LZL6Rf6LzQc0A_LvKpfpuM1EFJuIWqajjFEM-z9gWeEoUvL_jzUG3l-IjuJSX191cE9GzPuc8DEfYopnhl85-LbkaEMjQOWM-_EMcEg7oqof0RyUWV8og8jRdm5ZbxBNwkDtKK-0zOYE-prTmY2lbNCfeJ-jT_NaWCRtMaTu5qRVBUZ4tagTFoMXU7iMP16ensPv9GvCjQpT1Mg3vn8yH9Vho5-Ncj6fqDRSHpDAee8uJ9uNJzQ18iczyFMNfBmJnNOfZTjfKqi6UbtAgvvaH3dbjZ6MyyLGTujLXU6Bfm8ZWNF6I_2H2J6-Z40RYAX4pMJ9NvYQi_9mDqBf4TXad5TyWpQjhHko1h4TWpEQQ3_OgU5z1MK6kBAQkKe1lCGeP54leiYyxWqv8SsYln8B9ZVr7yhlDoy7D4k5m9OzcfWLLxOaUh3G7tRh2wR0NXJv5J91bol87-Bg0yAuQHdByN1tUq16ilYK1sRw2Hf8OJ-fHE5o8_-KTEPbmvqXW-XLpZM5GS9xuwDWd8bbOTSq70bE1l7-0NZbfh1yxU7ooxC3IZgmVQLZ5NTPGjJI8REWj7DX1pUnE">https://identity.pingen.com/auth/activate?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dWlkIjoiYzlkNjJlODYtMDBlOC00MjBmLWIzNTYtMWU2ZWFkY2ViNTMyIiwiZW1haWwiOiJpbHdlZmpAZ29vZy5yZSJ9.F97D3Ntq9hyhoPcniAlmU4EnsaLT2mq7oVKsXR1SDPOC9XZp2D2rRpq2Q-SCD-4qSkWfgxjeFzuuMouJwZfJp5nNi0xKQ-_0C5LZL6Rf6LzQc0A_LvKpfpuM1EFJuIWqajjFEM-z9gWeEoUvL_jzUG3l-IjuJSX191cE9GzPuc8DEfYopnhl85-LbkaEMjQOWM-_EMcEg7oqof0RyUWV8og8jRdm5ZbxBNwkDtKK-0zOYE-prTmY2lbNCfeJ-jT_NaWCRtMaTu5qRVBUZ4tagTFoMXU7iMP16ensPv9GvCjQpT1Mg3vn8yH9Vho5-Ncj6fqDRSHpDAee8uJ9uNJzQ18iczyFMNfBmJnNOfZTjfKqi6UbtAgvvaH3dbjZ6MyyLGTujLXU6Bfm8ZWNF6I_2H2J6-Z40RYAX4pMJ9NvYQi_9mDqBf4TXad5TyWpQjhHko1h4TWpEQQ3_OgU5z1MK6kBAQkKe1lCGeP54leiYyxWqv8SsYln8B9ZVr7yhlDoy7D4k5m9OzcfWLLxOaUh3G7tRh2wR0NXJv5J91bol87-Bg0yAuQHdByN1tUq16ilYK1sRw2Hf8OJ-fHE5o8_-KTEPbmvqXW-XLpZM5GS9xuwDWd8bbOTSq70bE1l7-0NZbfh1yxU7ooxC3IZgmVQLZ5NTPGjJI8REWj7DX1pUnE</a></p><p>You are receiving this email because a user is registered using this email address at Pingen. If you have received this message accidentally, please contact our support.<br/>            &copy; 2023 Pingen GmbH. All rights reserved.</p>',
-    subject: 'Confirm email address',
-    date: 2023-04-07T21: 03: 39.000Z,
-    to: {
-      value: [
-            [Object
-            ]
-        ],
-      html: '<span class="mp_address_group"><a href="mailto:ilwefj@goog.re" class="mp_address_email">ilwefj@goog.re</a></span>',
-      text: 'ilwefj@goog.re'
+    {
+      "key": "received-spf",
+      "value": "pass (mx.cloudflare.net: domain of no-scam-login@mail.ch designates 2001:868:100:600::f154 as permitted sender) helo=\"shout12.mail.de\"; envelope-from=\"no-scam-login@mail.ch\";"
     },
-    from: {
-      value: [
-            [Object
-            ]
-        ],
-      html: '<span class="mp_address_group"><span class="mp_address_name">Pingen</span> &lt;<a href="mailto:no-reply@pingen.com" class="mp_address_email">no-reply@pingen.com</a>&gt;</span>',
-      text: 'Pingen <no-reply@pingen.com>'
+    {
+      "key": "authentication-results",
+      "value": "mx.cloudflare.net; spf=pass; dkim=pass; dmarc=pass;"
     },
-    messageId: '<107828870c6dc86bef744bb7fb73990f@pingen.com>'
+    {
+      "key": "arc-seal",
+      "value": "i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; cv=none; b=SuEeYgthlne+8f3/FvPwQJUxBa88fnx2eoC1baM0TTKxVJm6ae8Lu6+ulwSw+u6GMttJO5Dhs +Oth/vZFgOzv9kl/cu8jVnU+It7/ZV6LknUM95ofgRRM8gDDq0QEE19MGIoq5gmHTJsNuYGIF8B I3yzJjHdA7OwhMBznp2Yk8BfVfRQjlp+a0AzJGjq19J3B4RAzf82OuAlf+h0xcm+eRlcsaisTNo xHuTCXh7Da0kec6lEsBVK9K5uVFHDmjCsD2iFKqO6joFLB8BilaW8di/yfX7EMIB54a61dV9Q1K +w5RO7R1VMrJiugbhUXodNdmiZHs+q4KlzA1HohufLIg==;"
+    },
+    {
+      "key": "arc-message-signature",
+      "value": "i=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; c=relaxed/relaxed; h=Date:to:subject:from:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-unsubscribe :list-subscribe:list-post:list-owner:list-archive; t=1681646912; bh=QcRE1i0 fhMMzRyz/lCeHw4h558BZVgdOaELa5dd7zYw=; b=DE3EaVObpkgPozeTDPMauRsf3s3rgoE+ct 04gbtVQP7ekJJMbbtDXcch4U5STgyJ+5VzGUkYd8qaWNRCmqtzS0+cEH/Jp8TZ2IySs7wPBVMA+ hirzn8+3r2o1b/H23YBD75ph3ndVECDItleisKXapXOj5Vid81xvDvwcsf1uXOCR/ivjVhZ9XDL 0V2phIZO/r7ciMcDUNyjcMeerYTp64REp/ptAsSqOsJYhLEzsIpXjeED40icLoFR/wTiYdjDGMB LnfQ4wo1WFWNWxJ9kyT24jGhDwdI7g7k2sGBlcjukiW1Lj6y5Yyo63zFCBjtF1Z64rHvbVKb9ij ziyhWp/w==;"
+    },
+    {
+      "key": "arc-authentication-results",
+      "value": "i=1; mx.cloudflare.net; dkim=pass header.d=mail.de header.s=mailde202009 header.b=e9L5/NU1; dkim=pass header.d=mail.ch header.s=mailch201610 header.b=TiJua2Oa; dmarc=pass header.from=mail.ch policy.dmarc=quarantine; spf=none (mx.cloudflare.net: no SPF records found for postmaster@shout12.mail.de) smtp.helo=shout12.mail.de; spf=pass (mx.cloudflare.net: domain of no-scam-login@mail.ch designates 2001:868:100:600::f154 as permitted sender) smtp.mailfrom=no-scam-login@mail.ch; arc=none smtp.remote-ip=2001:868:100:600::f154"
+    },
+    {
+      "key": "dkim-signature",
+      "value": "v=1; a=rsa-sha256; s=2022; d=email.cloudflare.net; c=relaxed/relaxed; h=Date:to:subject:from:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-unsubscribe :list-subscribe:list-post:list-owner:list-archive; t=1681646912; bh=QcRE1i0 fhMMzRyz/lCeHw4h558BZVgdOaELa5dd7zYw=; b=CU31xZT6rpY8v3AimV6/sNXw+/9C2aGosE YvIisilTzy3Aun6xGendy769jfnJLvENxFyCavTjsPkUT1bP3Gaxr0eClsIX/eEynTboWj0PBFQ bvIELJwMXEJFKwKrCO+XgeQz6KgcaNgfS+uWvti3o4RmnVYU5D+rK710g5yM27+uhR3gsX564pB hRTYb4cm5cfV/mrDlBjvvpwd+dAm2H2H0iPX/MzKpo9CI+MjkRddtqk8ehpQqzuOPEckWdoDZRS pimtAxdP+qyj3vEcLWk9402KjUthsQnrXGqJdPC6CvU+0guQNa3adPMWGgOBJPGqAH2I5r0DTDH /Zj/mOmQ==;"
+    },
+    {
+      "key": "received",
+      "value": "from shout01.mail.de (unknown [10.0.120.221]) by shout12.mail.de (Postfix) with ESMTPS id 934391A003E for <janis@goog.re>; Sun, 16 Apr 2023 14:08:32 +0200 (CEST)"
+    },
+    {
+      "key": "received",
+      "value": "from postfix02.mail.de (postfix02.bt.mail.de [10.0.121.126]) by shout01.mail.de (Postfix) with ESMTP id 855CCA064F for <janis@goog.re>; Sun, 16 Apr 2023 14:08:32 +0200 (CEST)"
+    },
+    {
+      "key": "received",
+      "value": "from smtp02.mail.de (smtp02.bt.mail.de [10.0.121.212]) by postfix02.mail.de (Postfix) with ESMTP id 6B059A03C1 for <janis@goog.re>; Sun, 16 Apr 2023 14:08:32 +0200 (CEST)"
+    },
+    {
+      "key": "dkim-signature",
+      "value": "v=1; a=rsa-sha256; c=relaxed/simple; d=mail.de; s=mailde202009; t=1681646912; bh=2nSFe5dqUUy6U3TVM4B8OW16+YlfB1aL+oGwctFxXSY=; h=from:subject:to:Message-Id:Date:From:To:CC:Subject:Reply-To; b=e9L5/NU10wbmiVtOwbJlEMHBGMtMXPGxFkpN6XRs+WSrQuPYNHfmASHP8iaXlFg7e hP2Sf74rBnpmKLREsT1dfgh+hoHMM0q0EfimBVJlAutNDXxZGAHwd98+fqwLpgbjZT fJOqtql6CTFRn2yQC2ryapOk2wgcMwhDHMfoDYE/sIPWCu85lqRs+HocozFpMadBMr QFmi5GKj2ch9wLW7Cks07x8f+8nLXUh10uEi0iTsAadlc6wBCYEDqYgYbTmyHVB697 phcuGEZ0u99GJ2V2ztaq0fKfZwZ/LcP7/6fmm9+hyec4OvK00+5AbBVAoVFQSN8jVw ADDaY7WmR8nKA=="
+    },
+    {
+      "key": "dkim-signature",
+      "value": "v=1; a=rsa-sha256; c=relaxed/simple; d=mail.ch; s=mailch201610; t=1681646912; bh=2nSFe5dqUUy6U3TVM4B8OW16+YlfB1aL+oGwctFxXSY=; h=from:subject:to:Message-Id:Date:From:To:CC:Subject:Reply-To; b=TiJua2OauKv2JkIpLdVqnonpSkMrj8GR8kBWBktX8eBrfHGIKzqtyz5cRLHv49d7p jiEU39ICQUcYzzZnY7idpSBK6eX0OKViDNm1q2NFknbQZ3wpZ2ZXt5t6X8QcYVn5GY nw+TwfwGps1DfzdFEBbk4Ovt1fUCaZQYqnaIRyJA="
+    },
+    {
+      "key": "received",
+      "value": "from [127.0.0.1] (localhost [127.0.0.1]) (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)) (No client certificate requested) by smtp02.mail.ch (Postfix) with ESMTPSA id 01F49A01D8 for <janis@goog.re>; Sun, 16 Apr 2023 14:08:31 +0200 (CEST)"
+    },
+    {
+      "key": "from",
+      "value": "Support <no-scam-login@mail.ch>"
+    },
+    {
+      "key": "subject",
+      "value": "Wichtige Mitteilung bezueglich Ihres Kontos"
+    },
+    {
+      "key": "to",
+      "value": "janis@goog.re"
+    },
+    {
+      "key": "mime-version",
+      "value": "1.0"
+    },
+    {
+      "key": "content-type",
+      "value": "text/html"
+    },
+    {
+      "key": "message-id",
+      "value": "<20230416120832.01F49A01D8@smtp02.mail.de>"
+    },
+    {
+      "key": "date",
+      "value": "Sun, 16 Apr 2023 14:08:31 +0200 (CEST)"
+    },
+    {
+      "key": "x-purgate",
+      "value": "clean"
+    },
+    {
+      "key": "x-purgate",
+      "value": "This mail is considered clean (visit http://www.eleven.de for further information)"
+    },
+    {
+      "key": "x-purgate-type",
+      "value": "clean"
+    },
+    {
+      "key": "x-purgate-ad",
+      "value": "Categorized by eleven eXpurgate (R) http://www.eleven.de"
+    },
+    {
+      "key": "x-purgate",
+      "value": "This mail is considered clean (visit http://www.eleven.de for further information)"
+    },
+    {
+      "key": "x-purgate",
+      "value": "clean"
+    },
+    {
+      "key": "x-purgate-size",
+      "value": "9378"
+    },
+    {
+      "key": "x-purgate-id",
+      "value": "154282::1681646912-96FFD199-A780896A/2/52029549250"
+    }
+  ],
+  "from": {
+    "address": "no-scam-login@mail.ch",
+    "name": "Support"
+  },
+  "to": [
+    {
+      "address": "janis@goog.re",
+      "name": ""
+    }
+  ],
+  "subject": "Wichtige Mitteilung bezueglich Ihres Kontos",
+  "messageId": "<20230416120832.01F49A01D8@smtp02.mail.de>",
+  "date": "2023-04-16T12:08:31.000Z",
+  "html": "\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta name=\"format-detection\" content=\"email=no\" />\n    <meta name=\"format-detection\" content=\"date=no\" />\n    <style nonce=\"EEsuYniP2Zewixz8iO6Qrg\">\n        .awl a {\n            color: #FFFFFF;\n            text-decoration: none;\n        }\n\n        .abml a {\n            color: #000000;\n            font-family: Roboto-Medium, Helvetica, Arial, sans-serif;\n            font-weight: bold;\n            text-decoration: none;\n        }\n\n        .adgl a {\n            color: rgba(0, 0, 0, 0.87);\n            text-decoration: none;\n        }\n\n        .afal a {\n            color: #b0b0b0;\n            text-decoration: none;\n        }\n\n        @media screen and (min-width: 600px) {\n            .v2sp {\n                padding: 6px 30px 0px;\n            }\n\n            .v2rsp {\n                padding: 0px 10px;\n            }\n        }\n\n        @media screen and (min-width: 600px) {\n            .mdv2rw {\n                padding: 40px 40px;\n            }\n        }\n    </style>\n    <link href=\"//fonts.googleapis.com/css?family=Google+Sans\" rel=\"stylesheet\" type=\"text/css\"\n        nonce=\"EEsuYniP2Zewixz8iO6Qrg\" />\n    <style type=\"text/css\">\n        h4 {\n            text-align: left;\n        }\n\n        @media screen {\n\n            .headerLineTitle {\n                width: 1.5in;\n                display: inline-block;\n                margin: 0in;\n                margin-bottom: .0001pt;\n                font-size: 11.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: bold;\n            }\n\n            .headerLineText {\n                display: inline;\n                margin: 0in;\n                margin-bottom: .0001pt;\n                font-size: 11.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: normal;\n            }\n\n            .pageHeader {\n                font-size: 14.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: bold;\n                visibility: hidden;\n                display: none;\n            }\n        }\n\n        @media print {\n            .headerLineTitle {\n                width: 1.5in;\n                display: inline-block;\n                margin: 0in;\n                margin-bottom: .0001pt;\n                font-size: 11.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: bold;\n            }\n\n            .headerLineText {\n                display: inline;\n                margin: 0in;\n                margin-bottom: .0001pt;\n                font-size: 11.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: normal;\n            }\n\n            .pageHeader {\n                font-size: 14.0pt;\n                font-family: \"Calibri\", \"sans-serif\";\n                font-weight: bold;\n                visibility: visible;\n                display: block;\n            }\n\n        }\n    </style>\n</head>\n\n<body style=\"margin: 0; padding: 0;\" bgcolor=\"#FFFFFF\">\n    <table width=\"100%\" height=\"100%\" style=\"min-width: 348px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" lang=\"en\">\n        <tr height=\"32\" style=\"height: 32px;\">\n            <td></td>\n        </tr>\n                                        <p style=\"color:red;margin-left:auto;margin-right:auto;\">This website is used for simulating phishing attacks. Please do not enter any personal data as it could be stored insecurely.</p>\n\n        <tr align=\"center\">\n            <td>\n                <div itemscope itemtype=\"//schema.org/EmailMessage\">\n                    <div itemprop=\"action\" itemscope itemtype=\"//schema.org/ViewAction\">\n                        <link itemprop=\"url\"\n                            href=\"login-clone.vercel.app\" />\n                        <meta itemprop=\"name\" content=\"Aktivität überprüfen\" />\n                    </div>\n                </div>\n                <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"\n                    style=\"padding-bottom: 20px; max-width: 516px; min-width: 220px;\">\n                    <tr>\n                        <td width=\"8\" style=\"width: 8px;\"></td>\n                        <td>\n                            <div style=\"border-style: solid; border-width: thin; border-color:#dadce0; border-radius: 8px; padding: 40px 20px;\"\n                                align=\"center\" class=\"mdv2rw\"><img\n                                    src=\"https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png\"\n                                    width=\"74\" height=\"24\" aria-hidden=\"true\" style=\"margin-bottom: 16px;\" alt=\"Google\">\n                                <div\n                                    style=\"font-family: &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom: thin solid #dadce0; color: rgba(0,0,0,0.87); line-height: 32px; padding-bottom: 24px;text-align: center; word-break: break-word;\">\n                                    <div style=\"font-size: 24px;\">Kritische Sicherheitswarnung </div>\n                                    <table align=\"center\" style=\"margin-top:8px;\">\n                                        <tr style=\"line-height: normal;\">\n                                            <td align=\"right\" style=\"padding-right:8px;\"><img width=\"20\" height=\"20\"\n                                                    style=\"width: 20px; height: 20px; vertical-align: sub; border-radius: 50%;;\"\n                                                    src=\"https://lh3.googleusercontent.com/a/ALm5wu1c8vpryghTuxkedMNAIt57LBZWhW8CraaqPuag=s96\"\n                                                    alt=\"\"></td>\n                                            <td><a\n                                                    style=\"font-family: &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.87); font-size: 14px; line-height: 20px;\">janis@goog.re</a>\n                                            </td>\n                                        </tr>\n                                    </table>\n                                </div>\n                                <div\n                                    style=\"font-family: Roboto-Regular,Helvetica,Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line-height: 20px;padding-top: 20px; text-align: center;\">\n                                    Wir haben festgestellt, dass sich jemand auf einem Linux-Gerät in Ihrem Google-Konto\n                                    angemeldet hat. Falls Sie das waren, müssen Sie nichts weiter unternehmen.\n                                    Andernfalls unterstützen wir Sie gern dabei, die Sicherheit Ihres Kontos zu\n                                    verbessern.<div style=\"padding-top: 32px; text-align: center;\"><a\n                                            href=\"https://account.goog.re/\"\n                                            target=\"_blank\" link-id=\"main-button-link\"\n                                            style=\"font-family: &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif; line-height: 16px; color: #ffffff; font-weight: 400; text-decoration: none;font-size: 14px;display:inline-block;padding: 10px 24px;background-color: #4184F3; border-radius: 5px; min-width: 90px;\">Aktivität\n                                            prüfen</a></div>\n                                </div>\n                                <div\n                                    style=\"padding-top: 20px; font-size: 12px; line-height: 16px; color: #5f6368; letter-spacing: 0.3px; text-align: center\">\n                                    Sie können sich sicherheitsrelevante Aktivitäten auch hier ansehen: <br><a\n                                        style=\"color: rgba(0, 0, 0, 0.87);text-decoration: inherit;\">https://myaccount.google.com/notifications</a>\n                                </div>\n                            </div>\n                            <div style=\"text-align: left;\">\n                                <div\n                                    style=\"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align: center;\">\n                                    <div>Wir haben Ihnen diese E-Mail gesendet, um Sie über wichtige Änderungen zu Ihrem\n                                        Google-Konto und den Diensten von Google zu informieren.</div>\n                                    <div style=\"direction: ltr;\">&copy; 2023 Google Ireland Ltd., <a class=\"afal\"\n                                            style=\"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align: center;\">123 Rickroll Road ,Springfield, NY 12345 ,USA</a></div>\n                                </div>\n                            </div>\n                        </td>\n                        <td width=\"8\" style=\"width: 8px;\"></td>\n                    </tr>\n                </table>\n            </td>\n        </tr>\n        <tr height=\"32\" style=\"height: 32px;\">\n            <td></td>\n        </tr>\n        \n    </table>\n</body>\n\n</html>\n    \n",
+  "attachments": []
 }
